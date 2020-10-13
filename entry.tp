@@ -2119,6 +2119,12 @@
           "default": ""
         },
         {
+          "id": "MSFSTouchPortalPlugin.FlightSystems.State.FlapsHandlePercent",
+          "type": "text",
+          "desc": "MSFS - Flight Systems - Flaps Handle Percentage",
+          "default": ""
+        },
+        {
           "id": "MSFSTouchPortalPlugin.FlightSystems.State.ParkingBrakeIndicator",
           "type": "text",
           "desc": "MSFS - Flight Systems - Parking Brake Indicator true/false",

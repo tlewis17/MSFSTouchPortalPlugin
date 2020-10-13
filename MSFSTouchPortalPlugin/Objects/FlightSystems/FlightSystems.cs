@@ -31,9 +31,11 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
 
     #region Flaps
 
+    [SimVarDataRequest]
     [TouchPortalAction("Flaps", "Flaps", "MSFS", "Flaps", "Flaps - {0}")]
     [TouchPortalActionChoice(new string[] { "Up", "Down", "Increase", "Decrease", "1", "2", "3", "Set" }, "Up")]
-    public object FLAPS { get; }
+    [TouchPortalState("FlapsHandlePercent", "text", "Flaps Handle Percentage", "")]
+    public static SimVarItem FlapsHandlePercent = new SimVarItem { def = Definition.FlapsHandlePercent, req = Request.FlapsHandlePercent, SimVarName = "FLAPS HANDLE PERCENT", Unit = Units.percent, CanSet = false, StringFormat = "{0:0.0#}" };
 
     [TouchPortalAction("CowlFlapsAll", "Cowl Flaps All", "MSFS", "Cowl Flaps All", "Cowl Flaps All - {0}")]
     [TouchPortalActionChoice(new string[] { "Increase", "Decrease" }, "Increase")]
@@ -64,7 +66,7 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
     [TouchPortalActionChoice(new string[] { "Toggle", "Up", "Down", "Set", "Pump" }, "Toggle")]
     [TouchPortalState("GearTotalExtended", "text", "Total percentage of gear extended", "")]
     public static SimVarItem GEAR =
-      new SimVarItem() { def = Definition.GearTotalExtended, req = Request.GearTotalExtended, SimVarName = "GEAR TOTAL PCT EXTENDED", Unit = Units.percentage, CanSet = false };
+      new SimVarItem { def = Definition.GearTotalExtended, req = Request.GearTotalExtended, SimVarName = "GEAR TOTAL PCT EXTENDED", Unit = Units.percentage, CanSet = false };
 
     #endregion
 
@@ -95,27 +97,27 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
     [TouchPortalActionChoice(new string[] { "Left", "Right" }, "Left")]
     [TouchPortalState("AileronTrim", "text", "Aileron Trim Angle", "")]
     public static SimVarItem AILERON_TRIM =
-      new SimVarItem() { def = Definition.AileronTrim, req = Request.AileronTrim, SimVarName = "AILERON TRIM", Unit = Units.radians, CanSet = false };
+      new SimVarItem { def = Definition.AileronTrim, req = Request.AileronTrim, SimVarName = "AILERON TRIM", Unit = Units.degrees, CanSet = false, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalAction("ElevatorTrim", "Elevator Trim", "MSFS", "Elevator Trim", "Elevator Trim - {0}")]
     [TouchPortalActionChoice(new string[] { "Up", "Down" }, "Up")]
     [TouchPortalState("ElevatorTrim", "text", "Elevator Trim Angle", "")]
     public static SimVarItem ELEVATOR_TRIM =
-      new SimVarItem() { def = Definition.ElevatorTrim, req = Request.ElevatorTrim, SimVarName = "ELEVATOR TRIM PCT", Unit = Units.radians, CanSet = false };
+      new SimVarItem { def = Definition.ElevatorTrim, req = Request.ElevatorTrim, SimVarName = "ELEVATOR TRIM PCT", Unit = Units.degrees, CanSet = false, StringFormat = "{0:0.0#}" };
     
     [SimVarDataRequest]
     [TouchPortalAction("RudderTrim", "Rudder Trim", "MSFS", "Rudder Trim", "Rudder Trim - {0}")]
     [TouchPortalActionChoice(new string[] { "Left", "Right" }, "Left")]
     [TouchPortalState("RudderTrim", "text", "Rudder Trim Angle", "")]
     public static SimVarItem RUDDER_TRIM =
-            new SimVarItem() { def = Definition.RudderTrim, req = Request.RudderTrim, SimVarName = "RUDDER TRIM", Unit = Units.radians, CanSet = false };
+            new SimVarItem { def = Definition.RudderTrim, req = Request.RudderTrim, SimVarName = "RUDDER TRIM", Unit = Units.degrees, CanSet = false, StringFormat = "{0:0.0#}" };
 
 
     [SimVarDataRequest] // XYZ
-    public static SimVarItem AileronTrimPct = new SimVarItem() { def = Definition.AileronTrimPct, req = Request.AileronTrimPct, SimVarName = "", Unit = Units.number, CanSet = true };
+    public static SimVarItem AileronTrimPct = new SimVarItem { def = Definition.AileronTrimPct, req = Request.AileronTrimPct, SimVarName = "", Unit = Units.number, CanSet = true };
     [SimVarDataRequest]
-    public static SimVarItem RudderTrimPct = new SimVarItem() { def = Definition.RudderTrimPct, req = Request.RudderTrimPct, SimVarName = "RUDDER TRIM PCT", Unit = Units.percentover100, CanSet = true };
+    public static SimVarItem RudderTrimPct = new SimVarItem { def = Definition.RudderTrimPct, req = Request.RudderTrimPct, SimVarName = "RUDDER TRIM PCT", Unit = Units.percentover100, CanSet = true };
 
     #endregion
   }

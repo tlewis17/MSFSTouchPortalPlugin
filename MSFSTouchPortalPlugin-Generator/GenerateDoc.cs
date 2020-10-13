@@ -1,4 +1,7 @@
-﻿using MSFSTouchPortalPlugin.Attributes;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using MSFSTouchPortalPlugin_Generator.Configuration;
+using MSFSTouchPortalPlugin_Generator.Interfaces;
 using MSFSTouchPortalPlugin_Generator.Model;
 using System;
 using System.IO;
@@ -8,13 +11,13 @@ using System.Text;
 using TouchPortalExtension.Attributes;
 
 namespace MSFSTouchPortalPlugin_Generator {
-  public class GenerateDoc {
-    private readonly string _PLUGIN_NAME = "";
-    private readonly string _TARGET_PATH = "";
+  internal class GenerateDoc : IGenerateDoc {
+    private readonly ILogger<GenerateDoc> _logger;
+    private readonly IOptions<GeneratorOptions> _options;
 
-    public GenerateDoc(string pluginName, string targetPath) {
-      _PLUGIN_NAME = pluginName;
-      _TARGET_PATH = targetPath;
+    public GenerateDoc(ILogger<GenerateDoc> logger, IOptions<GeneratorOptions> options) {
+      _logger = logger;
+      _options = options;
     }
 
     public void Generate() {
@@ -24,8 +27,8 @@ namespace MSFSTouchPortalPlugin_Generator {
       // Create Markdown
       var result = CreateMarkdown(model);
 
-      File.WriteAllText(Path.Combine(_TARGET_PATH, "DOCUMENTATION.md"), result);
-      Console.WriteLine("DOCUMENTATION.md generated.");
+      File.WriteAllText(Path.Combine(_options.Value.TargetPath, "DOCUMENTATION.md"), result);
+      _logger.LogInformation("DOCUMENTATION.md generated.");
     }
 
     private DocBase CreateModel() {
@@ -33,7 +36,7 @@ namespace MSFSTouchPortalPlugin_Generator {
       var _ = MSFSTouchPortalPlugin.Objects.AutoPilot.AutoPilot.AP_AIRSPEED_HOLD;
 
       // Find assembly
-      var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(a => a.Name == _PLUGIN_NAME).FirstOrDefault();
+      var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(a => a.Name == _options.Value.PluginName).FirstOrDefault();
 
       if (a == null) {
         throw new ArgumentNullException("Unable to load assembly for reflection.");
@@ -95,7 +98,7 @@ namespace MSFSTouchPortalPlugin_Generator {
 
           if (stateAttribute != null) {
             var newState = new DocState {
-              Id = $"{_PLUGIN_NAME}.{catAttr.Id}.State.{stateAttribute.Id}",
+              Id = $"{_options.Value.PluginName}.{catAttr.Id}.State.{stateAttribute.Id}",
               Type = stateAttribute.Type,
               Description = stateAttribute.Description,
               DefaultValue = stateAttribute.Default

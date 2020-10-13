@@ -15,17 +15,17 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalAction("AutoPilotMaster", "AutoPilot", "MSFS", "Toggle/On/Off Auto Pilot", "Auto Pilot Master - {0}")]
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off" }, "Toggle")]
     [TouchPortalState("AutoPilotMaster", "text", "AutoPilot Master Status", "")]
-    public static readonly SimVarItem AP_MASTER = new SimVarItem { def = Definition.AutoPilotMaster, SimVarName = "AUTOPILOT MASTER", Unit = Units.Bool, CanSet = false };
+    public static readonly SimVarItem AP_MASTER = new SimVarItem { Def = Definition.AutoPilotMaster, SimVarName = "AUTOPILOT MASTER", Unit = Units.Bool, CanSet = false };
 
     [SimVarDataRequest]
     [TouchPortalState("AutoPilotAvailable", "text", "AutoPilot Availability", "")]
     public static readonly SimVarItem AutoPilotAvailable =
-      new SimVarItem { def = Definition.AutoPilotAvailable, SimVarName = "AUTOPILOT AVAILABLE", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotAvailable, SimVarName = "AUTOPILOT AVAILABLE", Unit = Units.Bool, CanSet = false };
 
     [SimVarDataRequest]
     [TouchPortalState("AutoPilotPitchHold", "text", "The status of Auto Pilot Pitch Hold button", "")]
     public static readonly SimVarItem AutoPilotPitchHold =
-      new SimVarItem { def = Definition.AutoPilotPitchHold, SimVarName = "AUTOPILOT PITCH HOLD", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotPitchHold, SimVarName = "AUTOPILOT PITCH HOLD", Unit = Units.Bool, CanSet = false };
 
     #endregion
 
@@ -36,14 +36,14 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off" }, "Toggle")]
     [TouchPortalState("AutoPilotAttitudeHold", "text", "AutoPilot Attitude Status", "")]
     public static readonly SimVarItem AP_ATTITUDE =
-      new SimVarItem { def = Definition.AutoPilotAttitudeHold, SimVarName = "AUTOPILOT ATTITUDE HOLD", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotAttitudeHold, SimVarName = "AUTOPILOT ATTITUDE HOLD", Unit = Units.Bool, CanSet = false };
 
     [SimVarDataRequest]
     [TouchPortalAction("AutoPilotAttitudeVar", "Attitude Hold Value", "MSFS", "Sets the attitude hold value", "Attitude Hold Value - {0}")]
     [TouchPortalActionChoice(new [] { "Select", "Increase", "Decrease" }, "Select")]
     [TouchPortalState("AutoPilotAttitudeVar", "text", "AutoPilot Pitch Reference Value", "")]
     public static readonly SimVarItem AP_ATTITUDE_PITCH =
-      new SimVarItem { def = Definition.AutoPilotAttitudeVar, SimVarName = "AUTOPILOT PITCH HOLD REF", Unit = Units.radians, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotAttitudeVar, SimVarName = "AUTOPILOT PITCH HOLD REF", Unit = Units.radians, CanSet = false };
 
     #endregion
 
@@ -54,7 +54,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off" }, "Toggle")]
     [TouchPortalState("AutoPilotApproachHold", "text", "AutoPilot Approach Status", "")]
     public static readonly SimVarItem AP_APPROACH =
-      new SimVarItem { def = Definition.AutoPilotApproachHold, SimVarName = "AUTOPILOT APPROACH HOLD", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotApproachHold, SimVarName = "AUTOPILOT APPROACH HOLD", Unit = Units.Bool, CanSet = false };
 
     #endregion
 
@@ -65,7 +65,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Increase", "Decrease" }, "Increase")]
     [TouchPortalState("AutoPilotBanking", "text", "AutoPilot Max Bank Angle", "")]
     public static readonly SimVarItem AP_MAX_BANK =
-      new SimVarItem { def = Definition.AutoPilotBanking, SimVarName = "AUTOPILOT MAX BANK", Unit = Units.radians, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotBanking, SimVarName = "AUTOPILOT MAX BANK", Unit = Units.radians, CanSet = false };
 
     #endregion
 
@@ -76,7 +76,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off" }, "Toggle")]
     [TouchPortalState("AutoPilotHeadingHold", "text", "AutoPilot Heading Status", "")]
     public static readonly SimVarItem AP_HEADING =
-      new SimVarItem { def = Definition.AutoPilotHeadingHold, SimVarName = "AUTOPILOT HEADING LOCK", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotHeadingHold, SimVarName = "AUTOPILOT HEADING LOCK", Unit = Units.Bool, CanSet = false };
 
 
     [SimVarDataRequest]
@@ -84,7 +84,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Select", "Increase", "Decrease", "Set" }, "Select")]
     [TouchPortalState("AutoPilotHeadingVar", "text", "AutoPilot Heading Direction", "")]
     public static readonly SimVarItem AP_HEADING_VAR =
-      new SimVarItem { def = Definition.AutoPilotHeadingVar, SimVarName = "AUTOPILOT HEADING LOCK DIR", Unit = Units.degrees, CanSet = false, StringFormat = "{0:F0}" };
+      new SimVarItem { Def = Definition.AutoPilotHeadingVar, SimVarName = "AUTOPILOT HEADING LOCK DIR", Unit = Units.degrees, CanSet = false, StringFormat = "{0:F0}" };
 
     #endregion
 
@@ -95,7 +95,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off" }, "Toggle")]
     [TouchPortalState("AutoPilotAltitudeHold", "text", "AutoPilot Altitude Status", "")]
     public static readonly SimVarItem AP_ALTITUDE =
-      new SimVarItem { def = Definition.AutoPilotAltitudeHold, SimVarName = "AUTOPILOT ALTITUDE LOCK", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotAltitudeHold, SimVarName = "AUTOPILOT ALTITUDE LOCK", Unit = Units.Bool, CanSet = false };
 
 
     [SimVarDataRequest]
@@ -103,7 +103,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Select", "Increase", "Decrease", "Set", "Set Metric" }, "Select")]
     [TouchPortalState("AutoPilotAltitudeVar", "text", "AutoPilot Altitude Value", "")]
     public static readonly SimVarItem AP_ALTITUDE_VAR =
-      new SimVarItem { def = Definition.AutoPilotAltitudeVar, SimVarName = "AUTOPILOT ALTITUDE LOCK VAR", Unit = Units.feet, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotAltitudeVar, SimVarName = "AUTOPILOT ALTITUDE LOCK VAR", Unit = Units.feet, CanSet = false };
 
     #endregion
 
@@ -114,7 +114,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off" }, "Toggle")]
     [TouchPortalState("AutoPilotBackCourseHold", "text", "AutoPilot Back Course Status", "")]
     public static readonly SimVarItem AP_BACKCOURSE =
-      new SimVarItem { def = Definition.AutoPilotBackCourseHold, SimVarName = "AUTOPILOT BACKCOURSE HOLD", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotBackCourseHold, SimVarName = "AUTOPILOT BACKCOURSE HOLD", Unit = Units.Bool, CanSet = false };
 
     #endregion
 
@@ -125,14 +125,14 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off" }, "Toggle")]
     [TouchPortalState("AutoPilotNav1Hold", "text", "AutoPilot Nav1 Status", "")]
     public static readonly SimVarItem AP_NAV1 =
-      new SimVarItem { def = Definition.AutoPilotNav1Hold, SimVarName = "AUTOPILOT NAV1 LOCK", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotNav1Hold, SimVarName = "AUTOPILOT NAV1 LOCK", Unit = Units.Bool, CanSet = false };
 
     [SimVarDataRequest]
     [TouchPortalAction("AutoPilotNavSelect", "Nav Mode - Set", "MSFS", "Sets the nav to 1 or 2 for Nav mode", "Nav Mode - {0} ")]
     [TouchPortalActionChoice(new [] { "1", "2" }, "1")]
     [TouchPortalState("AutoPilotNavSelected", "text", "AutoPilot Nav Selected Index", "")]
     public static readonly SimVarItem AP_NAV_SELECT_SET =
-      new SimVarItem { def = Definition.AutoPilotNavSelected, SimVarName = "AUTOPILOT NAV SELECTED", Unit = Units.number, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotNavSelected, SimVarName = "AUTOPILOT NAV SELECTED", Unit = Units.number, CanSet = false };
 
     #endregion
 
@@ -145,7 +145,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle" }, "Toggle")]
     [TouchPortalState("AutoPilotVerticalSpeedHold", "text", "AutoPilot Vertical Speed Status", "")]
     public static readonly SimVarItem AutoPilotVerticalSpeedHold = 
-      new SimVarItem { def = Definition.AutoPilotVerticalSpeedHold, SimVarName = "AUTOPILOT VERTICAL HOLD", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotVerticalSpeedHold, SimVarName = "AUTOPILOT VERTICAL HOLD", Unit = Units.Bool, CanSet = false };
 
 
     [SimVarDataRequest]
@@ -153,7 +153,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Select", "Increase", "Decrease", "Set", "Set Metric" }, "Select")]
     [TouchPortalState("AutoPilotVerticalSpeedVar", "text", "AutoPilot Vertical Speed Value", "")]
     public static readonly SimVarItem AP_VERTICALSPEED_VAR =
-      new SimVarItem { def = Definition.AutoPilotVerticalSpeedVar, SimVarName = "AUTOPILOT VERTICAL HOLD VAR", Unit = Units.feetminute, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotVerticalSpeedVar, SimVarName = "AUTOPILOT VERTICAL HOLD VAR", Unit = Units.feetminute, CanSet = false };
 
     #endregion
 
@@ -164,14 +164,14 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off", "Set" }, "Toggle")]
     [TouchPortalState("AutoPilotAirSpeedHold", "text", "AutoPilot Air Speed Status", "")]
     public static readonly SimVarItem AP_AIRSPEED =
-      new SimVarItem { def = Definition.AutoPilotAirSpeedHold, SimVarName = "AUTOPILOT AIRSPEED HOLD", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotAirSpeedHold, SimVarName = "AUTOPILOT AIRSPEED HOLD", Unit = Units.Bool, CanSet = false };
 
     [SimVarDataRequest]
     [TouchPortalAction("AutoPilotAirSpeedVar", "Airspeed Hold Value", "MSFS", "Sets the airspeed hold value", "Airspeed Hold Value - {0}")]
     [TouchPortalActionChoice(new [] { "Select", "Increase", "Decrease", "Set" }, "Select")]
     [TouchPortalState("AutoPilotAirSpeedVar", "text", "AutoPilot Air Speed Value", "")]
     public static readonly SimVarItem AP_AIRSPEED_VAR =
-      new SimVarItem { def = Definition.AutoPilotAirSpeedVar, SimVarName = "AUTOPILOT AIRSPEED HOLD VAR", Unit = Units.knots, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotAirSpeedVar, SimVarName = "AUTOPILOT AIRSPEED HOLD VAR", Unit = Units.knots, CanSet = false };
 
     #endregion
 
@@ -182,12 +182,12 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Arm", "GoAround" }, "Arm")]
     [TouchPortalState("AutoThrottleArm", "text", "Auto Throttle Armed", "")]
     public static readonly SimVarItem AUTO_THROTTLE =
-      new SimVarItem { def = Definition.AutoThrottleArm, SimVarName = "AUTOPILOT THROTTLE ARM", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoThrottleArm, SimVarName = "AUTOPILOT THROTTLE ARM", Unit = Units.Bool, CanSet = false };
 
     [SimVarDataRequest]
     [TouchPortalState("AutoThrottleGoAround", "text", "Auto Throttle GoAround", "")]
     public static readonly SimVarItem AUTO_THROTTLE_GA =
-      new SimVarItem { def = Definition.AutoThrottleGA, SimVarName = "AUTOPILOT TAKEOFF POWER ACTIVE", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoThrottleGA, SimVarName = "AUTOPILOT TAKEOFF POWER ACTIVE", Unit = Units.Bool, CanSet = false };
 
 
     #endregion
@@ -207,14 +207,14 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off", "Set" }, "Toggle")]
     [TouchPortalState("AutoPilotMach", "text", "AutoPilot Mach Hold", "")]
     public static readonly SimVarItem AP_MACH =
-      new SimVarItem { def = Definition.AutoPilotMach, SimVarName = "AUTOPILOT MACH HOLD", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotMach, SimVarName = "AUTOPILOT MACH HOLD", Unit = Units.Bool, CanSet = false };
 
     [SimVarDataRequest]
     [TouchPortalAction("AutoPilotMachVar", "Mach Hold Value", "MSFS", "Sets the mach hold value", "Mach Hold Value - {0}")]
     [TouchPortalActionChoice(new [] { "Select", "Increase", "Decrease" }, "Increase")]
     [TouchPortalState("AutoPilotMachVar", "text", "AutoPilot Mach Value", "")]
     public static readonly SimVarItem AP_MACH_VAR =
-      new SimVarItem { def = Definition.AutoPilotMachVar, SimVarName = "AUTOPILOT MACH HOLD VAR", Unit = Units.number, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotMachVar, SimVarName = "AUTOPILOT MACH HOLD VAR", Unit = Units.number, CanSet = false };
 
     #endregion
 
@@ -225,17 +225,17 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle" }, "Toggle")]
     [TouchPortalState("AutoPilotFlightDirector", "text", "AutoPilot Flight Director Status", "")]
     public static readonly SimVarItem AP_FLIGHT_DIRECTOR =
-      new SimVarItem { def = Definition.AutoPilotFlightDirector, SimVarName = "AUTOPILOT FLIGHT DIRECTOR ACTIVE", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotFlightDirector, SimVarName = "AUTOPILOT FLIGHT DIRECTOR ACTIVE", Unit = Units.Bool, CanSet = false };
 
     [SimVarDataRequest]
     [TouchPortalAction("AutoPilotFlightDirectorCurrentPitch", "Flight Director Pitch Sync", "MSFS", "Syncs the Flight Director with the current pitch", "Flight Director Pitch Sync")]
     [TouchPortalState("AutoPilotFlightDirectorCurrentPitch", "text", "Flight Director Current Pitch", "")]
     public static readonly SimVarItem SYNC_FLIGHT_DIRECTOR_PITCH =
-      new SimVarItem { def = Definition.AutoPilotFlightDirectorCurrentPitch, SimVarName = "AUTOPILOT FLIGHT DIRECTOR PITCH", Unit = Units.radians, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotFlightDirectorCurrentPitch, SimVarName = "AUTOPILOT FLIGHT DIRECTOR PITCH", Unit = Units.radians, CanSet = false };
 
     [TouchPortalState("AutoPilotFlightDirectorCurrentBank", "text", "Flight Director Current Bank", "")]
     public static readonly SimVarItem SYNC_FLIGHT_DIRECTOR_Bank =
-  new SimVarItem { def = Definition.AutoPilotFlightDirectorCurrentBank, SimVarName = "AUTOPILOT FLIGHT DIRECTOR BANK", Unit = Units.radians, CanSet = false };
+  new SimVarItem { Def = Definition.AutoPilotFlightDirectorCurrentBank, SimVarName = "AUTOPILOT FLIGHT DIRECTOR BANK", Unit = Units.radians, CanSet = false };
 
     #endregion
 
@@ -246,7 +246,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off" }, "Toggle")]
     [TouchPortalState("AutoPilotWingLeveler", "text", "AutoPilot Wing Leveler", "")]
     public static readonly SimVarItem AP_WING_LEVELER =
-      new SimVarItem { def = Definition.AutoPilotWingLeveler, SimVarName = "AUTOPILOT WING LEVELER", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotWingLeveler, SimVarName = "AUTOPILOT WING LEVELER", Unit = Units.Bool, CanSet = false };
 
     #endregion
 
@@ -266,7 +266,7 @@ namespace MSFSTouchPortalPlugin.Objects.AutoPilot {
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off", "Set" }, "Toggle")]
     [TouchPortalState("AutoPilotYawDampener", "text", "Yaw Dampener Status", "")]
     public static readonly SimVarItem AP_YAWDAMPENER =
-      new SimVarItem { def = Definition.AutoPilotYawDampener, SimVarName = "AUTOPILOT YAW DAMPER", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { Def = Definition.AutoPilotYawDampener, SimVarName = "AUTOPILOT YAW DAMPER", Unit = Units.Bool, CanSet = false };
 
     #endregion
 

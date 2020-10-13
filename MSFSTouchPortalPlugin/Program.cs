@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using MSFSTouchPortalPlugin.Configuration;
 using MSFSTouchPortalPlugin.Interfaces;
 using MSFSTouchPortalPlugin.Services;
-using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -15,12 +15,16 @@ using TouchPortalApi;
 namespace MSFSTouchPortalPlugin {
   public static class Program {
     private static async Task Main(string[] args) {
+      // Logger
+      var logFactory = new LoggerFactory();
+      var logger = logFactory.CreateLogger("Program");
+
       // Ensure only one running instance
       const string mutextName = "MSFSTouchPortalPlugin";
       var mutex = new Mutex(true, mutextName, out var createdNew);
 
       if (!createdNew) {
-        Console.WriteLine($"{mutextName} is already running. Exiting application.");
+        logger.LogError($"{mutextName} is already running. Exiting application.");
         return;
       }
 
@@ -38,7 +42,7 @@ namespace MSFSTouchPortalPlugin {
           .AddSingleton<IReflectionService, ReflectionService>();
         }).RunConsoleAsync();
       } catch (COMException ex) {
-        Console.WriteLine($"COMException: {ex.Message}");
+        logger.LogError($"COMException: {ex.Message}");
       }
     }
   }

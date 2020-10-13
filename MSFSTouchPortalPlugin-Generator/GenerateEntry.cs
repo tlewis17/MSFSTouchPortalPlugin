@@ -23,7 +23,7 @@ namespace MSFSTouchPortalPlugin_Generator {
       var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(a => a.Name == _PLUGIN_NAME).FirstOrDefault();
 
       if (a == null) {
-        throw new Exception("Unable to load assembly for reflection.");
+        throw new ApplicationException("Unable to load assembly for reflection.");
       }
 
       var assembly = Assembly.Load(a);
@@ -43,7 +43,7 @@ namespace MSFSTouchPortalPlugin_Generator {
       // Add Plug Start Comand
       model.plugin_start_cmd = Path.Combine("%TP_PLUGIN_FOLDER%", "MSFS-TouchPortal-Plugin\\dist", "MSFSTouchPortalPlugin.exe");
       // Load asembly
-      var c = MSFSTouchPortalPlugin.Objects.AutoPilot.AutoPilot.AP_AIRSPEED_HOLD;
+      var _ = MSFSTouchPortalPlugin.Objects.AutoPilot.AutoPilot.AP_AIRSPEED_HOLD;
 
       var q = assembly.GetTypes().ToList();
 
@@ -53,7 +53,7 @@ namespace MSFSTouchPortalPlugin_Generator {
       // For each category, add to model
       s.ForEach(cat => {
         var att = (TouchPortalCategoryAttribute)Attribute.GetCustomAttribute(cat, typeof(TouchPortalCategoryAttribute));
-        var category = new TouchPortalCategory() {
+        var category = new TouchPortalCategory {
           id = $"{_PLUGIN_NAME}.{att.Id}",
           name = att.Name,
           imagepath = att.ImagePath
@@ -63,7 +63,7 @@ namespace MSFSTouchPortalPlugin_Generator {
         var actions = cat.GetMembers().Where(t => t.CustomAttributes.Any(att => att.AttributeType == typeof(TouchPortalActionAttribute))).ToList();
         actions.ForEach(act => {
           var actionAttribute = (TouchPortalActionAttribute)Attribute.GetCustomAttribute(act, typeof(TouchPortalActionAttribute));
-          var action = new TouchPortalAction() {
+          var action = new TouchPortalAction {
             id = $"{category.id}.Action.{actionAttribute.Id}",
             name = actionAttribute.Name,
             prefix = actionAttribute.Prefix,
@@ -78,7 +78,7 @@ namespace MSFSTouchPortalPlugin_Generator {
 
           if (choiceAttributes.Count > 0) {
             for (int i = 0; i < choiceAttributes.Count; i++) {
-              var data = new TouchPortalActionData() {
+              var data = new TouchPortalActionData {
                 id = $"{action.id}.Data.{i}",
                 type = "choice",
                 label = "Action",

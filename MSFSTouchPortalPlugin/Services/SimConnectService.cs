@@ -1,4 +1,5 @@
-﻿using Microsoft.FlightSimulator.SimConnect;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.FlightSimulator.SimConnect;
 using MSFSTouchPortalPlugin.Constants;
 using MSFSTouchPortalPlugin.Enums;
 using MSFSTouchPortalPlugin.Interfaces;
@@ -17,6 +18,8 @@ namespace MSFSTouchPortalPlugin.Services {
     [DllImport("kernel32.dll")]
     static extern IntPtr GetConsoleWindow();
 
+    private readonly ILogger<SimConnectService> _logger;
+
     const uint NOTIFICATION_PRIORITY = 10000000;
     const int WM_USER_SIMCONNECT = 0x0402;
     SimConnect _simConnect = null;
@@ -27,12 +30,14 @@ namespace MSFSTouchPortalPlugin.Services {
     public event ConnectEventHandler OnConnect;
     public event DisconnectEventHandler OnDisconnect;
 
-    public SimConnectService() { }
+    public SimConnectService(ILogger<SimConnectService> logger) {
+      _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    }
 
     public bool IsConnected() => _connected;
 
     public bool Connect() {
-      Console.WriteLine("Connect SimConnect");
+      _logger.LogInformation("Connect SimConnect");
 
       try {
         _simConnect = new SimConnect("Touch Portal Plugin", GetConsoleWindow(), WM_USER_SIMCONNECT, _scReady, 0);
@@ -46,8 +51,6 @@ namespace MSFSTouchPortalPlugin.Services {
 
         // Sim mapped events
         _simConnect.OnRecvEvent += new SimConnect.RecvEventEventHandler(simconnect_OnRecvEvent);
-
-        // simconnect.OnRecvAssignedObjectId += new SimConnect.RecvAssignedObjectIdEventHandler(simconnect_OnRecvAssignedObjectId);
 
         // Sim Data
         _simConnect.OnRecvSimobjectData += new SimConnect.RecvSimobjectDataEventHandler(simconnect_OnRecvSimObjectData);
@@ -69,14 +72,14 @@ namespace MSFSTouchPortalPlugin.Services {
 
         return true;
       } catch (COMException ex) {
-        Console.WriteLine("Connection to Sim failed: " + ex.Message);
+        _logger.LogError("Connection to Sim failed: {exception}", ex.Message);
       }
 
       return false;
     }
 
     public void Disconnect() {
-      Console.WriteLine("Disconnect SimConnect");
+      _logger.LogInformation("Disconnect SimConnect");
 
       if (_simConnect != null) {
         /// Dispose serves the same purpose as SimConnect_Close()
@@ -95,7 +98,6 @@ namespace MSFSTouchPortalPlugin.Services {
         if (_scReady.WaitOne(TimeSpan.FromSeconds(5))) {
           // TODO: Exception on quit
           _simConnect?.ReceiveMessage();
-          //simconnect.RequestDataOnSimObjectType(Events.Test, Group.Test, 0, SIMCONNECT_SIMOBJECT_TYPE.AIRCRAFT);
         }
       }
 
@@ -148,12 +150,11 @@ namespace MSFSTouchPortalPlugin.Services {
     }
 
     private void simconnect_OnRecvQuit(SimConnect sender, SIMCONNECT_RECV data) {
-      Console.WriteLine("Quit");
+      _logger.LogInformation("Quit");
       Disconnect();
     }
 
     private void simconnect_OnRecvSimobjectDataBytype(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE data) {
-      Console.WriteLine("ReceivedObjectDataByType");
       if (data.dwData.Length > 0) {
         OnDataUpdateEvent((Definition)data.dwDefineID, (Request)data.dwRequestID, data.dwData[0]);
       }
@@ -161,17 +162,13 @@ namespace MSFSTouchPortalPlugin.Services {
     }
 
     private void simconnect_OnRecvOpen(SimConnect sender, SIMCONNECT_RECV_OPEN data) {
-      Console.WriteLine("Opened");
+      _logger.LogInformation("Opened");
     }
 
     private void simconnect_OnRecvException(SimConnect sender, SIMCONNECT_RECV_EXCEPTION data) {
       SIMCONNECT_EXCEPTION eException = (SIMCONNECT_EXCEPTION)data.dwException;
-      Console.WriteLine("SimConnect_OnRecvException: " + eException.ToString());
+      _logger.LogError("SimConnect_OnRecvException: {exception}", eException.ToString());
     }
-
-    //private void simconnect_OnRecvAssignedObjectId(SimConnect sender, SIMCONNECT_RECV_ASSIGNED_OBJECT_ID data) {
-    //  Console.WriteLine("Recieved");
-    //}
 
     /// <summary>
     /// Events triggered by sending events to the Sim
@@ -194,11 +191,10 @@ namespace MSFSTouchPortalPlugin.Services {
           break;
       }
 
-      Console.WriteLine($"{DateTime.Now} Recieved: {group} - {eventId}");
+      _logger.LogInformation($"{DateTime.Now} Recieved: {group} - {eventId}");
     }
 
     private void simconnect_OnRecvSimObjectData(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA data) {
-      Console.WriteLine("Recieved");
     }
   }
 }

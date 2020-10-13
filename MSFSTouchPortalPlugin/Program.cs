@@ -31,6 +31,7 @@ namespace MSFSTouchPortalPlugin {
             opts.ServerIp = "127.0.0.1";
             opts.ServerPort = 12136;
           })
+          .AddLogging()
           .Configure<MSFSTouchPortalPluginOptions>((opt) => { })
           .AddHostedService<PluginService>()
           .AddSingleton<ISimConnectService, SimConnectService>()

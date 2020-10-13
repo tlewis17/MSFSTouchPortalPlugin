@@ -221,11 +221,12 @@ namespace MSFSTouchPortalPlugin.Constants {
     public string SimVarName;
     public string Unit;
     public bool CanSet = false;
-    public bool PendingRequest = false;
     public DateTime LastPending = DateTime.Now;
     public string Value = string.Empty;
     public string StringFormat = "{0}";
     public string TouchPortalStateId = "";
+
+    public bool PendingRequest { get; private set; } = false;
 
     /// <summary>
     /// Updates the object to either set pending update or no longer pending

@@ -226,7 +226,7 @@ namespace MSFSTouchPortalPlugin.Constants {
     public string StringFormat = "{0}";
     public string TouchPortalStateId = "";
 
-    public bool PendingRequest { get; private set; } = false;
+    public bool PendingRequest { get; private set; }
 
     /// <summary>
     /// Updates the object to either set pending update or no longer pending

@@ -66,21 +66,11 @@ namespace MSFSTouchPortalPlugin.Services {
             object valObj = stringVal;
 
             // Handle conversions
-            switch (value.Unit) {
-              case Units.degrees:
-              case Units.knots:
-              case Units.feet:
-              case Units.MHz:
-              case Units.percent:
-              case Units.rpm:
-              case Units.mach:
-              case Units.feetminute:
-                valObj = float.Parse(stringVal);
-                break;
-              case Units.radians:
-                // Convert to Degrees
-                valObj = float.Parse(stringVal) * (180 / Math.PI);
-                break;
+            if (ShouldConvertToFload(value.Unit)) {
+              valObj = float.Parse(stringVal);
+            } else if (value.Unit == Units.radians) {
+              // Convert to Degrees
+              valObj = float.Parse(stringVal) * (180 / Math.PI);
             }
 
             // Update if known id.
@@ -116,6 +106,22 @@ namespace MSFSTouchPortalPlugin.Services {
         _simConnectCancellationTokenSource.Cancel();
         _messageProcessor.UpdateState(new StateUpdate { Id = "MSFSTouchPortalPlugin.Plugin.State.Connected", Value = _simConnectService.IsConnected().ToString().ToLower() });
       };
+    }
+
+    /// <summary>
+    /// All the unit types that should convert to Float
+    /// </summary>
+    /// <param name="unitType">The unit type</param>
+    /// <returns>True if it should be a float</returns>
+    private bool ShouldConvertToFload(string unitType) {
+      return unitType == Units.degrees ||
+        unitType == Units.knots ||
+        unitType == Units.feet ||
+        unitType == Units.MHz ||
+        unitType == Units.percent ||
+        unitType == Units.rpm ||
+        unitType == Units.mach ||
+        unitType == Units.feetminute;
     }
 
     private void SetupEventLists() {

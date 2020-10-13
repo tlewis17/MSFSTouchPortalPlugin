@@ -25,7 +25,7 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     public object MASTER_BATTERY_ALTERNATOR { get; }
 
     [TouchPortalAction("AlternatorIndex", "Alternator - Specific", "MSFS", "Toggle Specific Alternator", "Toggle Altenator - {0}")]
-    [TouchPortalActionChoice(new string[] { "1", "2", "3", "4" }, "1")]
+    [TouchPortalActionChoice(new [] { "1", "2", "3", "4" }, "1")]
     public object ALTERNATOR_INDEX { get; }
 
     #endregion
@@ -33,19 +33,19 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     #region Lights
 
     [TouchPortalAction("StrobeLights", "Toggle/On/Off/Set Strobe Lights", "MSFS", "Toggle/On/Off/Set Strobe Lights", "Strobe Lights - {0}")]
-    [TouchPortalActionChoice(new string[] { "Toggle", "On", "Off", "Set" }, "Toggle")]
+    [TouchPortalActionChoice(new [] { "Toggle", "On", "Off", "Set" }, "Toggle")]
     public object STROBE_LIGHTS { get; }
 
     [TouchPortalAction("PanelLights", "Toggle/On/Off/Set Panel Lights", "MSFS", "Toggle/On/Off/Set Panel Lights", "Panel Lights - {0}")]
-    [TouchPortalActionChoice(new string[] { "Toggle", "On", "Off", "Set" }, "Toggle")]
+    [TouchPortalActionChoice(new [] { "Toggle", "On", "Off", "Set" }, "Toggle")]
     public object PANEL_LIGHTS { get; }
 
     [TouchPortalAction("LandingLights", "Toggle/On/Off/Set Landing Lights", "MSFS", "Toggle/On/Off/Set Landing Lights", "Landing Lights - {0}")]
-    [TouchPortalActionChoice(new string[] { "Toggle", "On", "Off", "Set" }, "Toggle")]
+    [TouchPortalActionChoice(new [] { "Toggle", "On", "Off", "Set" }, "Toggle")]
     public object LANDING_LIGHTS { get; }
 
     [TouchPortalAction("ToggleLights", "Toggle All/Specific Lights", "MSFS", "Toggle All/Specific Lights", "Toggle Lights - {0}")]
-    [TouchPortalActionChoice(new string[] { "All", "Beacon", "Taxi", "Logo", "Recognition", "Wing", "Nav", "Cabin" }, "All")]
+    [TouchPortalActionChoice(new [] { "All", "Beacon", "Taxi", "Logo", "Recognition", "Wing", "Nav", "Cabin" }, "All")]
     public object ALL_LIGHTS { get; }
 
     [SimVarDataRequest]

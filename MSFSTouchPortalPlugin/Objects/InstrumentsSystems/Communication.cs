@@ -15,42 +15,42 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
 
     [SimVarDataRequest]
     [TouchPortalState("Com1ActiveFrequency", "text", "The frequency of the active COM1 radio", "")]
-    public static SimVarItem Com1ActiveFrequency =
+    public readonly static SimVarItem Com1ActiveFrequency =
       new SimVarItem { def = Definition.Com1ActiveFrequency, req = Request.Com1ActiveFrequency, SimVarName = "COM ACTIVE FREQUENCY:1", Unit = Units.MHz, CanSet = false, StringFormat = "{0:0.000#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("Com1StandbyFrequency", "text", "The frequency of the standby COM1 radio", "")]
-    public static SimVarItem Com1StandbyFrequency =
+    public readonly static SimVarItem Com1StandbyFrequency =
       new SimVarItem { def = Definition.Com1StandbyFrequency, req = Request.Com1StandbyFrequency, SimVarName = "COM STANDBY FREQUENCY:1", Unit = Units.MHz, CanSet = false, StringFormat = "{0:0.000#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("Com2ActiveFrequency", "text", "The frequency of the active COM2 radio", "")]
-    public static SimVarItem Com2ActiveFrequency =
+    public readonly static SimVarItem Com2ActiveFrequency =
       new SimVarItem { def = Definition.Com2ActiveFrequency, req = Request.Com2ActiveFrequency, SimVarName = "COM ACTIVE FREQUENCY:2", Unit = Units.MHz, CanSet = false, StringFormat = "{0:0.000#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("Com2StandbyFrequency", "text", "The frequency of the standby COM2 radio", "")]
-    public static SimVarItem Com2StandbyFrequency =
+    public readonly static SimVarItem Com2StandbyFrequency =
       new SimVarItem { def = Definition.Com2StandbyFrequency, req = Request.Com2StandbyFrequency, SimVarName = "COM STANDBY FREQUENCY:2", Unit = Units.MHz, CanSet = false, StringFormat = "{0:0.000#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("Nav1ActiveFrequency", "text", "The frequency of the active NAV1 radio", "")]
-    public static SimVarItem Nav1ActiveFrequency =
+    public readonly static SimVarItem Nav1ActiveFrequency =
       new SimVarItem { def = Definition.Nav1ActiveFrequency, req = Request.Nav1ActiveFrequency, SimVarName = "NAV ACTIVE FREQUENCY:1", Unit = Units.MHz, CanSet = false, StringFormat = "{0:0.000#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("Nav1StandbyFrequency", "text", "The frequency of the standby NAV1 radio", "")]
-    public static SimVarItem Nav1StandbyFrequency =
+    public readonly static SimVarItem Nav1StandbyFrequency =
       new SimVarItem { def = Definition.Nav1StandbyFrequency, req = Request.Nav1StandbyFrequency, SimVarName = "NAV STANDBY FREQUENCY:1", Unit = Units.MHz, CanSet = false, StringFormat = "{0:0.000#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("Nav2ActiveFrequency", "text", "The frequency of the active NAV2 radio", "")]
-    public static SimVarItem Nav2ActiveFrequency =
+    public readonly static SimVarItem Nav2ActiveFrequency =
       new SimVarItem { def = Definition.Nav2ActiveFrequency, req = Request.Nav2ActiveFrequency, SimVarName = "NAV ACTIVE FREQUENCY:2", Unit = Units.MHz, CanSet = false, StringFormat = "{0:0.000#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("Nav2StandbyFrequency", "text", "The frequency of the standby NAV2 radio", "")]
-    public static SimVarItem Nav2StandbyFrequency =
+    public readonly static SimVarItem Nav2StandbyFrequency =
       new SimVarItem { def = Definition.Nav2StandbyFrequency, req = Request.Nav2StandbyFrequency, SimVarName = "NAV STANDBY FREQUENCY:2", Unit = Units.MHz, CanSet = false, StringFormat = "{0:0.000#}" };
   }
 

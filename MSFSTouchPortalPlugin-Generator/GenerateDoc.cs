@@ -53,7 +53,7 @@ namespace MSFSTouchPortalPlugin_Generator {
       // Loop through categories
       classList.ForEach(cat => {
         var catAttr = (TouchPortalCategoryAttribute)Attribute.GetCustomAttribute(cat, typeof(TouchPortalCategoryAttribute));
-        var newCat = new DocCategory() {
+        var newCat = new DocCategory {
           Name = catAttr.Name
         };
 
@@ -61,7 +61,7 @@ namespace MSFSTouchPortalPlugin_Generator {
         var actions = cat.GetMembers().Where(t => t.CustomAttributes.Any(att => att.AttributeType == typeof(TouchPortalActionAttribute))).ToList();
         actions.ForEach(act => {
           var actionAttribute = (TouchPortalActionAttribute)Attribute.GetCustomAttribute(act, typeof(TouchPortalActionAttribute));
-          var newAct = new DocAction() {
+          var newAct = new DocAction {
             Name = actionAttribute.Name,
             Description = actionAttribute.Description,
             Type = actionAttribute.Type,
@@ -73,7 +73,7 @@ namespace MSFSTouchPortalPlugin_Generator {
 
           if (choiceAttributes.Count > 0) {
             for (int i = 0; i < choiceAttributes.Count; i++) {
-              var data = new DocActionData() {
+              var data = new DocActionData {
                 Type = "choice",
                 DefaultValue = choiceAttributes[i].DefaultValue,
                 Values = string.Join(",", choiceAttributes[i].ChoiceValues)
@@ -94,7 +94,7 @@ namespace MSFSTouchPortalPlugin_Generator {
           var stateAttribute = state.GetCustomAttribute<TouchPortalStateAttribute>();
 
           if (stateAttribute != null) {
-            var newState = new DocState() {
+            var newState = new DocState {
               Id = $"{_PLUGIN_NAME}.{catAttr.Id}.State.{stateAttribute.Id}",
               Type = stateAttribute.Type,
               Description = stateAttribute.Description,

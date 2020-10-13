@@ -44,7 +44,7 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     [TouchPortalActionChoice(new string[] { "Toggle", "On", "Off", "Set" }, "Toggle")]
     [TouchPortalState("PitotHeat", "text", "Pitot Heat Status", "")]
     public static SimVarItem PITOT_HEAT =
-      new SimVarItem() { def = Definition.PitotHeat, req = Request.PitotHeat, SimVarName = "", Unit = Units.Bool, CanSet = false };
+      new SimVarItem { def = Definition.PitotHeat, req = Request.PitotHeat, SimVarName = "", Unit = Units.Bool, CanSet = false };
 
     #endregion
   }

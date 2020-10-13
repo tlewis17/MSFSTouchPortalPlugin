@@ -32,7 +32,7 @@ namespace MSFSTouchPortalPlugin_Generator {
       var version = fvi.FileVersion;
 
       // Setup Base Model
-      var model = new Base() {
+      var model = new Base {
         sdk = 2,
         version = int.Parse(version.Replace(".", "")),
         name = _PLUGIN_NAME,
@@ -105,7 +105,7 @@ namespace MSFSTouchPortalPlugin_Generator {
           var stateAttribute = state.GetCustomAttribute<TouchPortalStateAttribute>();
 
           if (stateAttribute != null) {
-            var newState = new TouchPortalState() {
+            var newState = new TouchPortalState {
               id = $"{category.id}.State.{stateAttribute.Id}",
               type = stateAttribute.Type,
               description = $"{category.name} - {stateAttribute.Description}",

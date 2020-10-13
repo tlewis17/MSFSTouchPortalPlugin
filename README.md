@@ -153,7 +153,6 @@ https://github.com/FordMustang0288/MSFSTouchPortalPages
 | --- | --- | --- | --- | --- |
 | Ailerons | TBD | Center, Left, Right, Set | v1 | |
 | Brakes | TBD | All, Left, Right | v1 | |
-| Flaps | TBD | Up, Down, Increase, Decrease, 1, 2, 3, Set | v1 | |
 | Cowl Flaps All | TBD | Increase, Decrease | v1 | |
 | Cowl Flaps 1 | TBD | Increase, Decrease | v1 | |
 | Cowl Flaps 2 | TBD | Increase, Decrease | v1 | |
@@ -163,17 +162,23 @@ https://github.com/FordMustang0288/MSFSTouchPortalPages
 | Rudder | TBD | Center, Left, Right, Set | v1 | |
 | Spoilers | TBD | Toggle, On, Off, Set | v1 | |
 | Spoilers Arm | TBD | Toggle, On, Off, Set | v1 | |
-| Aileron Trim | AileronTrim | Left, RIght | v2 | |
-| Elevator Trim | ElevatorTrim | Up, Down | v2 | |
-| Rudder Trim | RudderTrim | Left, Right | v2 | |
 
 #### Actions
 
+* Flaps - (Tested) - Changes the position of the flaps
+  * Up / Down / Increase / Decrease / 1 / 2 / 3
 * Toggle Parking Brake - (Tested) - Toggles the parking brake on or off
+* Rudder Trim - (Tested) - Left / Right
+* Elevator Trim - (Tested) - Left / Right
+* Aileron Trim - (Tested) - Up / Down
 
 #### States
 
+* Aileron Trim - (Tested) - Percent
+* Elevator Trim - (Tested) - Percent
+* FlapsHandlePercent - (Tested) - Percent
 * ParkingBrakeIndicator - (Tested) - True/False
+* RudderTrim - (Tested) - Percent
 
 ### Electrical
 

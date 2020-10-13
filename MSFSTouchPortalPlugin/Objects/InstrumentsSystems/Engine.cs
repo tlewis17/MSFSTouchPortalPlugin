@@ -13,7 +13,7 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     [SimVarDataRequest]
     [TouchPortalAction("MasterIgnition", "Master Ignition Switch", "MSFS", "Toggle Master Ignition Switch", "Toggle Master Ignition Switch")]
     [TouchPortalState("MasterIgnitionSwitch", "text", "Master Ignition Switch Status", "")]
-    public static SimVarItem MASTER_IGNITION = new SimVarItem() { def = Definition.MasterIgnitionSwitch, req = Request.MasterIgnitionSwitch, SimVarName = "MASTER IGNITION SWITCH", Unit = Units.Bool, CanSet = false };
+    public static SimVarItem MASTER_IGNITION = new SimVarItem { def = Definition.MasterIgnitionSwitch, req = Request.MasterIgnitionSwitch, SimVarName = "MASTER IGNITION SWITCH", Unit = Units.Bool, CanSet = false };
 
     [TouchPortalAction("EngineAuto", "Engine Auto Start/Shutdown", "MSFS", "Start/Shutdown Engine", "Engine - {0}")]
     [TouchPortalActionChoice(new string[] { "Start", "Shutdown" }, "Start")]

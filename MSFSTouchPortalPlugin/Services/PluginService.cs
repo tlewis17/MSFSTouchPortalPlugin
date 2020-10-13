@@ -85,7 +85,7 @@ namespace MSFSTouchPortalPlugin.Services {
 
             // Update if known id.
             if (!string.IsNullOrWhiteSpace(value.TouchPortalStateId)) {
-              _messageProcessor.UpdateState(new StateUpdate() { Id = value.TouchPortalStateId, Value = string.Format(value.StringFormat, valObj) });
+              _messageProcessor.UpdateState(new StateUpdate { Id = value.TouchPortalStateId, Value = string.Format(value.StringFormat, valObj) });
             }
           }
 
@@ -96,7 +96,7 @@ namespace MSFSTouchPortalPlugin.Services {
       _simConnectService.OnConnect += () => {
         _simConnectCancellationTokenSource = new CancellationTokenSource();
 
-        _messageProcessor.UpdateState(new StateUpdate() { Id = "MSFSTouchPortalPlugin.Plugin.State.Connected", Value = _simConnectService.IsConnected().ToString().ToLower() });
+        _messageProcessor.UpdateState(new StateUpdate { Id = "MSFSTouchPortalPlugin.Plugin.State.Connected", Value = _simConnectService.IsConnected().ToString().ToLower() });
 
         // Register Actions
         foreach (var a in actionsDictionary) {
@@ -114,7 +114,7 @@ namespace MSFSTouchPortalPlugin.Services {
 
       _simConnectService.OnDisconnect += () => {
         _simConnectCancellationTokenSource.Cancel();
-        _messageProcessor.UpdateState(new StateUpdate() { Id = "MSFSTouchPortalPlugin.Plugin.State.Connected", Value = _simConnectService.IsConnected().ToString().ToLower() });
+        _messageProcessor.UpdateState(new StateUpdate { Id = "MSFSTouchPortalPlugin.Plugin.State.Connected", Value = _simConnectService.IsConnected().ToString().ToLower() });
       };
     }
 

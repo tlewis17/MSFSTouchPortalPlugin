@@ -39,6 +39,7 @@ namespace MSFSTouchPortalPlugin.Constants {
     Com1StandbyFrequency,
     Com2ActiveFrequency,
     Com2StandbyFrequency,
+    FlapsHandlePercent,
     FlapSpeedExceeeded,
     GroundAltitude,
     GroundVelocity,
@@ -143,6 +144,7 @@ namespace MSFSTouchPortalPlugin.Constants {
     Com1StandbyFrequency,
     Com2ActiveFrequency,
     Com2StandbyFrequency,
+    FlapsHandlePercent,
     FlapSpeedExceeeded,
     GroundAltitude,
     GroundVelocity,
@@ -210,32 +212,9 @@ namespace MSFSTouchPortalPlugin.Constants {
     #endregion
   }
 
-  public static class SimVars {
-
-    #region Engine Systems
-
-    #endregion
-
-    #region Flight Systems
-
-
-    #endregion
-
-    #region Fuel Systems
-    #endregion
-
-    #region Lights
-
-    #endregion
-
-    #region Measurements
-
-
-
-    #endregion
-
-  }
-
+  /// <summary>
+  /// The SimVarItem which defines all data variables for SimConnect
+  /// </summary>
   public class SimVarItem {
     public Definition def;
     public Request req;
@@ -244,11 +223,14 @@ namespace MSFSTouchPortalPlugin.Constants {
     public bool CanSet = false;
     public bool PendingRequest = false;
     public DateTime LastPending = DateTime.Now;
-    public string TouchPortalStateMapping;
     public string Value = string.Empty;
     public string StringFormat = "{0}";
     public string TouchPortalStateId = "";
 
+    /// <summary>
+    /// Updates the object to either set pending update or no longer pending
+    /// </summary>
+    /// <param name="val">True/False</param>
     public void SetPending(bool val) {
       PendingRequest = val;
 

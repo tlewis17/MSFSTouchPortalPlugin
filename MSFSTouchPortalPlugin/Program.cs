@@ -13,7 +13,7 @@ using TouchPortalApi;
 [assembly: InternalsVisibleTo("MSFSTouchPortalPlugin-Generator")]
 
 namespace MSFSTouchPortalPlugin {
-  public class Program {
+  public static class Program {
     private static async Task Main(string[] args) {
       // Ensure only one running instance
       const string mutextName = "MSFSTouchPortalPlugin";

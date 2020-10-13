@@ -5,40 +5,40 @@ using TouchPortalExtension.Attributes;
 namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
   [SimVarDataRequestGroup]
   [TouchPortalCategory("InstrumentsSystems.Fuel", "MSFS - Fuel")]
-  internal class FuelMapping {
+  internal static class FuelMapping {
 
     [TouchPortalAction("AddFuel", "Add Fuel", "MSFS", "Adds 25% amount of Fuel", "Add 25% amount of fuel")]
-    public object ADD_FUEL { get; }
+    public static object ADD_FUEL { get; }
 
     [TouchPortalAction("FuelSelectors", "Fuel Selectors", "MSFS", "Fuel Selectors", "Fuel Selector {0} - {1}")]
     [TouchPortalActionChoice(new [] { "1", "2", "3", "4" }, "1")]
     [TouchPortalActionChoice(new [] { "All", "Off", "Left", "Right", "Left - Main", "Right - Main", "Left - Aux", "Right - Aux", "Center" }, "All")]
-    public object FUEL_SELECTORS { get; }
+    public static object FUEL_SELECTORS { get; }
 
     [TouchPortalAction("Primers", "Toggle All/Specific Primers", "MSFS", "Toggle All/Specific Primers", "Toggle Primers - {0}")]
     [TouchPortalActionChoice(new [] { "All", "1", "2", "3", "4" }, "All")]
-    public object PRIMERS { get; }
+    public static object PRIMERS { get; }
 
 
     [TouchPortalAction("FuelDump", "Fuel Dump - Toggle", "MSFS", "Toggles the Fuel Dump", "Toggle Fuel Dump")]
-    public object FUEL_DUMP { get; }
+    public static object FUEL_DUMP { get; }
 
     [TouchPortalAction("CrossFeed", "Toggle/Open/Off Cross Feed", "MSFS", "Toggle/Open/Off Cross Feed", "Cross Feed - {0}")]
     [TouchPortalActionChoice(new [] { "Toggle", "Open", "Off" }, "Open")]
-    public object CROSS_FEED { get; }
+    public static object CROSS_FEED { get; }
 
     [TouchPortalAction("FuelValve", "Toggle All/Specific Fuel Valve", "MSFS", "Toggle All/Specific Fuel Valve", "Toggle Fuel Valve - {0}")]
     [TouchPortalActionChoice(new [] { "All", "1", "2", "3", "4" }, "All")]
-    public object FUEL_VALVE { get; }
+    public static object FUEL_VALVE { get; }
 
     #region Fuel Pump
 
     [TouchPortalAction("FuelPump", "Fuel Pump - Toggle", "MSFS", "Toggles the Fuel Pump", "Toggle Fuel Pump")]
-    public object FUEL_PUMP { get; }
+    public static object FUEL_PUMP { get; }
 
     [TouchPortalAction("ElectricFuelPump", "Electric Fuel Pump - Toggle", "MSFS", "Toggles the Electric Fuel Pump", "Toggle Electric Fuel Pump - {0}")]
     [TouchPortalActionChoice(new [] { "All", "1", "2", "3", "4" }, "All")]
-    public object ELECTRIC_FUEL_PUMP { get; }
+    public static object ELECTRIC_FUEL_PUMP { get; }
 
     #endregion
   }

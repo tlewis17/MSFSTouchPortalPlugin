@@ -6,34 +6,34 @@ using TouchPortalExtension.Attributes;
 namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
   [SimVarDataRequestGroup]
   [TouchPortalCategory("Environment", "MSFS - Environment")]
-  internal class EnvironmentMapping {
+  internal static class EnvironmentMapping {
     #region Anti-Ice
 
     [TouchPortalAction("AntiIce", "Anti-Ice", "MSFS", "Toggle/On/Off Anti Ice", "Anti Ice - {0}")]
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off", "Set" }, "Toggle")]
-    public object ANTI_ICE { get; }
+    public static object ANTI_ICE { get; }
 
     [TouchPortalAction("AntiIceEng1", "Anti-Ice Engine 1", "MSFS", "Toggle/On/Off Anti Ice Engine 1", "Anti Ice Engine 1 - {0}")]
     [TouchPortalActionChoice(new [] { "Toggle","Set" }, "Toggle")]
-    public object ANTI_ICE_ENG1 { get; }
+    public static object ANTI_ICE_ENG1 { get; }
 
     [TouchPortalAction("AntiIceEng2", "Anti-Ice Engine 2", "MSFS", "Toggle/On/Off Anti Ice Engine 2", "Anti Ice Engine 2 - {0}")]
     [TouchPortalActionChoice(new [] { "Toggle","Set" }, "Toggle")]
-    public object ANTI_ICE_ENG2 { get; }
+    public static object ANTI_ICE_ENG2 { get; }
 
     [TouchPortalAction("AntiIceEng3", "Anti-Ice Engine 3", "MSFS", "Toggle/On/Off Anti Ice Engine 3", "Anti Ice Engine 3 - {0}")]
     [TouchPortalActionChoice(new [] { "Toggle", "Set" }, "Toggle")]
-    public object ANTI_ICE_ENG3 { get; }
+    public static object ANTI_ICE_ENG3 { get; }
 
     [TouchPortalAction("AntiIceEng4", "Anti-Ice Engine 4", "MSFS", "Toggle/On/Off Anti Ice Engine 4", "Anti Ice Engine 4 - {0}")]
     [TouchPortalActionChoice(new [] { "Toggle", "Set" }, "Toggle")]
-    public object ANTI_ICE_ENG4 { get; }
+    public static object ANTI_ICE_ENG4 { get; }
 
     [TouchPortalAction("StructuralDeIce", "Structural De-ice", "MSFS", "Toggle Structural DeIce", "Toggle Structural DeIce")]
-    public object STRUCTURAL_DEICE { get; }
+    public static object STRUCTURAL_DEICE { get; }
 
     [TouchPortalAction("PropellerDeIce", "Propeller De-ice", "MSFS", "Toggle Propeller DeIce", "Toggle Propeller DeIce")]
-    public object PROPELLER_DEICE { get; }
+    public static object PROPELLER_DEICE { get; }
 
     #endregion
 
@@ -43,7 +43,7 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     [TouchPortalAction("PitotHeat", "Pitot Heat", "MSFS", "Toggle/On/Off Pitot Heat", "Pitot Heat - {0}")]
     [TouchPortalActionChoice(new [] { "Toggle", "On", "Off", "Set" }, "Toggle")]
     [TouchPortalState("PitotHeat", "text", "Pitot Heat Status", "")]
-    public readonly static SimVarItem PITOT_HEAT =
+    public static readonly SimVarItem PITOT_HEAT =
       new SimVarItem { def = Definition.PitotHeat, req = Request.PitotHeat, SimVarName = "", Unit = Units.Bool, CanSet = false };
 
     #endregion

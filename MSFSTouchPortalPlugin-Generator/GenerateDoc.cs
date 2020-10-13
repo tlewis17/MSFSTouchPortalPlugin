@@ -36,7 +36,7 @@ namespace MSFSTouchPortalPlugin_Generator {
       var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(a => a.Name == _PLUGIN_NAME).FirstOrDefault();
 
       if (a == null) {
-        throw new ApplicationException("Unable to load assembly for reflection.");
+        throw new ArgumentNullException("Unable to load assembly for reflection.");
       }
 
       var model = new DocBase {

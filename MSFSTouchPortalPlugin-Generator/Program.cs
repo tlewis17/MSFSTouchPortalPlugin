@@ -1,5 +1,5 @@
 ﻿namespace MSFSTouchPortalPlugin_Generator {
-  class Program {
+  static class Program {
     private const string _PLUGIN_NAME = "MSFSTouchPortalPlugin";
     private static string _TargetPath = "..\\..\\..\\..\\";
     static void Main(string[] args) {

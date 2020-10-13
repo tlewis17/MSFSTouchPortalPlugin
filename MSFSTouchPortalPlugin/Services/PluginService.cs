@@ -16,7 +16,7 @@ using Timer = System.Timers.Timer;
 
 namespace MSFSTouchPortalPlugin.Services {
   /// <inheritdoc cref="IPluginService" />
-  internal class PluginService : IPluginService {
+  internal class PluginService : IPluginService, IDisposable {
     private CancellationToken _cancellationToken;
     private CancellationTokenSource _simConnectCancellationTokenSource;
 
@@ -179,7 +179,7 @@ namespace MSFSTouchPortalPlugin.Services {
       // Run Listen and pairing
       await Task.WhenAll(new Task[] {
         _simConnectService.WaitForMessage(simConnectCancelToken)
-      });
+      }).ConfigureAwait(false);
     }
 
     #region OnEvents
@@ -221,6 +221,9 @@ namespace MSFSTouchPortalPlugin.Services {
               _simConnectService.Disconnect();
             }
             break;
+          default:
+            // No other types of events supported right now.
+            break;
         }
 
         return;
@@ -260,6 +263,39 @@ namespace MSFSTouchPortalPlugin.Services {
     public Task StopAsync(CancellationToken cancellationToken) {
       return Task.CompletedTask;
     }
+
+    #region IDisposable Support
+    private bool disposedValue = false; // To detect redundant calls
+
+    protected virtual void Dispose(bool disposing) {
+      if (!disposedValue) {
+        if (disposing) {
+          // TODO: dispose managed state (managed objects).
+          _simConnectCancellationTokenSource.Dispose();
+        }
+
+        // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+        // TODO: set large fields to null.
+
+        disposedValue = true;
+      }
+    }
+
+    // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+    // ~PluginService()
+    // {
+    //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+    //   Dispose(false);
+    // }
+
+    // This code added to correctly implement the disposable pattern.
+    public void Dispose() {
+      // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+      Dispose(true);
+      // TODO: uncomment the following line if the finalizer is overridden above.
+      // GC.SuppressFinalize(this);
+    }
+    #endregion
 
     #endregion
   }

@@ -14,7 +14,7 @@ namespace MSFSTouchPortalPlugin.Services {
   /// <summary>
   /// Wrapper for SimConnect
   /// </summary>
-  internal class SimConnectService : ISimConnectService {
+  internal class SimConnectService : ISimConnectService, IDisposable {
     [DllImport("kernel32.dll")]
     static extern IntPtr GetConsoleWindow();
 
@@ -189,12 +189,49 @@ namespace MSFSTouchPortalPlugin.Services {
         case Groups.Fuel:
           eventId = (Fuel)data.uEventID;
           break;
+        default:
+          // No other actions
+          break;
       }
 
       _logger.LogInformation($"{DateTime.Now} Recieved: {group} - {eventId}");
     }
 
     private void simconnect_OnRecvSimObjectData(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA data) {
+      // Empty method for now, not implemented
     }
+
+    #region IDisposable Support
+    private bool disposedValue = false; // To detect redundant calls
+
+    protected virtual void Dispose(bool disposing) {
+      if (!disposedValue) {
+        if (disposing) {
+          // TODO: dispose managed state (managed objects).
+          _scReady.Dispose();
+        }
+
+        // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+        // TODO: set large fields to null.
+
+        disposedValue = true;
+      }
+    }
+
+    // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+    // ~SimConnectService()
+    // {
+    //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+    //   Dispose(false);
+    // }
+
+    // This code added to correctly implement the disposable pattern.
+    public void Dispose() {
+      // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+      Dispose(true);
+      // TODO: uncomment the following line if the finalizer is overridden above.
+      // GC.SuppressFinalize(this);
+    }
+    #endregion
   }
 }

@@ -8,12 +8,12 @@ namespace MSFSTouchPortalPlugin.Objects.SimSystem {
   [TouchPortalCategory("SimSystem", "MSFS - System")]
   internal class SimSystemMapping {
     //[TouchPortalAction("Pause", "Pause", "MSFS", "Toggle/On/Off Pause", "Pause - {0}")]
-    //[TouchPortalActionChoice(new string[] { "Toggle", "On", "Off" }, "Toggle")]
+    //[TouchPortalActionChoice(new [] { "Toggle", "On", "Off" }, "Toggle")]
     //public object PAUSE { get; }
 
     [SimVarDataRequest]
     [TouchPortalAction("SimulationRate", "Simulation Rate", "MSFS", "Simulation Rate", "Rate {0}")]
-    [TouchPortalActionChoice(new string[] { "Increase", "Decrease" }, "Decrease")]
+    [TouchPortalActionChoice(new [] { "Increase", "Decrease" }, "Decrease")]
     [TouchPortalState("SimulationRate", "text", "The current simulation rate", "")]
     public readonly static SimVarItem SimulationRate =
       new SimVarItem { def = Definition.SimulationRate, req = Request.SimulationRate, SimVarName = "SIMULATION RATE", Unit = Units.number, CanSet = false };

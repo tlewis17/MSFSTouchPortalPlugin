@@ -10,7 +10,7 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
     #region Ailerons
 
     [TouchPortalAction("Ailerons", "Ailerons", "MSFS", "Ailerons", "Ailerons - {0}")]
-    [TouchPortalActionChoice(new string[] { "Center", "Left", "Right", "Set" }, "Center")]
+    [TouchPortalActionChoice(new [] { "Center", "Left", "Right", "Set" }, "Center")]
     public object AILERONS { get; }
 
     #endregion
@@ -18,7 +18,7 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
     #region Brakes
 
     [TouchPortalAction("Brakes", "Brakes", "MSFS", "Brakes", "Brakes - {0}")]
-    [TouchPortalActionChoice(new string[] { "All", "Left", "Right" }, "All")]
+    [TouchPortalActionChoice(new [] { "All", "Left", "Right" }, "All")]
     public object BRAKES { get; }
 
 
@@ -33,28 +33,28 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
 
     [SimVarDataRequest]
     [TouchPortalAction("Flaps", "Flaps", "MSFS", "Flaps", "Flaps - {0}")]
-    [TouchPortalActionChoice(new string[] { "Up", "Down", "Increase", "Decrease", "1", "2", "3", "Set" }, "Up")]
+    [TouchPortalActionChoice(new [] { "Up", "Down", "Increase", "Decrease", "1", "2", "3", "Set" }, "Up")]
     [TouchPortalState("FlapsHandlePercent", "text", "Flaps Handle Percentage", "")]
     public readonly static SimVarItem FlapsHandlePercent = new SimVarItem { def = Definition.FlapsHandlePercent, req = Request.FlapsHandlePercent, SimVarName = "FLAPS HANDLE PERCENT", Unit = Units.percent, CanSet = false, StringFormat = "{0:0.0#}" };
 
     [TouchPortalAction("CowlFlapsAll", "Cowl Flaps All", "MSFS", "Cowl Flaps All", "Cowl Flaps All - {0}")]
-    [TouchPortalActionChoice(new string[] { "Increase", "Decrease" }, "Increase")]
+    [TouchPortalActionChoice(new [] { "Increase", "Decrease" }, "Increase")]
     public object COWL_FLAPS_All { get; }
 
     [TouchPortalAction("CowlFlaps1", "Cowl Flaps 1", "MSFS", "Cowl Flaps 1", "Cowl Flaps 1 - {0}")]
-    [TouchPortalActionChoice(new string[] { "Increase", "Decrease" }, "Increase")]
+    [TouchPortalActionChoice(new [] { "Increase", "Decrease" }, "Increase")]
     public object COWL_FLAPS_1 { get; }
 
     [TouchPortalAction("CowlFlaps2", "Cowl Flaps 2", "MSFS", "Cowl Flaps 2", "Cowl Flaps 2 - {0}")]
-    [TouchPortalActionChoice(new string[] { "Increase", "Decrease" }, "Increase")]
+    [TouchPortalActionChoice(new [] { "Increase", "Decrease" }, "Increase")]
     public object COWL_FLAPS_2 { get; }
 
     [TouchPortalAction("CowlFlaps3", "Cowl Flaps 3", "MSFS", "Cowl Flaps 3", "Cowl Flaps 3 - {0}")]
-    [TouchPortalActionChoice(new string[] { "Increase", "Decrease" }, "Increase")]
+    [TouchPortalActionChoice(new [] { "Increase", "Decrease" }, "Increase")]
     public object COWL_FLAPS_3 { get; }
 
     [TouchPortalAction("CowlFlaps4", "Cowl Flaps 4", "MSFS", "Cowl Flaps 4", "Cowl Flaps 4 - {0}")]
-    [TouchPortalActionChoice(new string[] { "Increase", "Decrease" }, "Increase")]
+    [TouchPortalActionChoice(new [] { "Increase", "Decrease" }, "Increase")]
     public object COWL_FLAPS_4 { get; }
 
     #endregion
@@ -63,7 +63,7 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
 
     [SimVarDataRequest]
     [TouchPortalAction("Gear", "Gear Manipulation", "MSFS", "Gear Manipulation", "Gear - {0}")]
-    [TouchPortalActionChoice(new string[] { "Toggle", "Up", "Down", "Set", "Pump" }, "Toggle")]
+    [TouchPortalActionChoice(new [] { "Toggle", "Up", "Down", "Set", "Pump" }, "Toggle")]
     [TouchPortalState("GearTotalExtended", "text", "Total percentage of gear extended", "")]
     public readonly static SimVarItem GEAR =
       new SimVarItem { def = Definition.GearTotalExtended, req = Request.GearTotalExtended, SimVarName = "GEAR TOTAL PCT EXTENDED", Unit = Units.percentage, CanSet = false };
@@ -73,7 +73,7 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
     #region Rudder
 
     [TouchPortalAction("Rudder", "Rudder", "MSFS", "Rudder", "Rudder - {0}")]
-    [TouchPortalActionChoice(new string[] { "Center", "Left", "Right", "Set" }, "Center")]
+    [TouchPortalActionChoice(new [] { "Center", "Left", "Right", "Set" }, "Center")]
     public object RUDDER { get; }
 
     #endregion
@@ -81,11 +81,11 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
     #region Spoilers
 
     [TouchPortalAction("Spoilers", "Spoilers", "MSFS", "Spoilers", "Spoilers - {0}")]
-    [TouchPortalActionChoice(new string[] { "Toggle", "On", "Off", "Set" }, "Toggle")]
+    [TouchPortalActionChoice(new [] { "Toggle", "On", "Off", "Set" }, "Toggle")]
     public static object SPOILERS { get; }
 
     [TouchPortalAction("SpoilersArm", "Spoilers Arm", "MSFS", "Spoilers Arm", "Spoilers Arm - {0}")]
-    [TouchPortalActionChoice(new string[] { "Toggle", "On", "Off", "Set" }, "Toggle")]
+    [TouchPortalActionChoice(new [] { "Toggle", "On", "Off", "Set" }, "Toggle")]
     public object SPOILERS_ARM { get; }
 
     #endregion
@@ -94,21 +94,21 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
 
     [SimVarDataRequest]
     [TouchPortalAction("AileronTrim", "Aileron Trim", "MSFS", "Aileron Trim", "Aileron Trim - {0}")]
-    [TouchPortalActionChoice(new string[] { "Left", "Right" }, "Left")]
+    [TouchPortalActionChoice(new [] { "Left", "Right" }, "Left")]
     [TouchPortalState("AileronTrim", "text", "Aileron Trim Angle", "")]
     public readonly static SimVarItem AILERON_TRIM =
       new SimVarItem { def = Definition.AileronTrim, req = Request.AileronTrim, SimVarName = "AILERON TRIM", Unit = Units.degrees, CanSet = false, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalAction("ElevatorTrim", "Elevator Trim", "MSFS", "Elevator Trim", "Elevator Trim - {0}")]
-    [TouchPortalActionChoice(new string[] { "Up", "Down" }, "Up")]
+    [TouchPortalActionChoice(new [] { "Up", "Down" }, "Up")]
     [TouchPortalState("ElevatorTrim", "text", "Elevator Trim Angle", "")]
     public readonly static SimVarItem ELEVATOR_TRIM =
       new SimVarItem { def = Definition.ElevatorTrim, req = Request.ElevatorTrim, SimVarName = "ELEVATOR TRIM PCT", Unit = Units.degrees, CanSet = false, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalAction("RudderTrim", "Rudder Trim", "MSFS", "Rudder Trim", "Rudder Trim - {0}")]
-    [TouchPortalActionChoice(new string[] { "Left", "Right" }, "Left")]
+    [TouchPortalActionChoice(new [] { "Left", "Right" }, "Left")]
     [TouchPortalState("RudderTrim", "text", "Rudder Trim Angle", "")]
     public readonly static SimVarItem RUDDER_TRIM =
             new SimVarItem { def = Definition.RudderTrim, req = Request.RudderTrim, SimVarName = "RUDDER TRIM", Unit = Units.degrees, CanSet = false, StringFormat = "{0:0.0#}" };

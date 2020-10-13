@@ -16,7 +16,7 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     public readonly static SimVarItem MASTER_IGNITION = new SimVarItem { def = Definition.MasterIgnitionSwitch, req = Request.MasterIgnitionSwitch, SimVarName = "MASTER IGNITION SWITCH", Unit = Units.Bool, CanSet = false };
 
     [TouchPortalAction("EngineAuto", "Engine Auto Start/Shutdown", "MSFS", "Start/Shutdown Engine", "Engine - {0}")]
-    [TouchPortalActionChoice(new string[] { "Start", "Shutdown" }, "Start")]
+    [TouchPortalActionChoice(new [] { "Start", "Shutdown" }, "Start")]
     public object ENGINE_AUTO { get; }
 
     #endregion
@@ -24,12 +24,12 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     #region Magneto
 
     [TouchPortalAction("AllMagenetos", "Toggle All Magnetos", "MSFS", "Toggle All Magnetos", "Toggle All Magnetos - {0}")]
-    [TouchPortalActionChoice(new string[] { "Start", "Off", "Right", "Left", "Both", "Decrease", "Increase" }, "Start")]
+    [TouchPortalActionChoice(new [] { "Start", "Off", "Right", "Left", "Both", "Decrease", "Increase" }, "Start")]
     public object ALL_MAGNETOS { get; }
 
     [TouchPortalAction("MagnetoSpecific", "Magnetos Specific", "MSFS", "Toggle Magneto Specific", "Toggle Magneto {0} - {1}")]
-    [TouchPortalActionChoice(new string[] { "1", "2", "3", "4" }, "1")]
-    [TouchPortalActionChoice(new string[] { "Start", "Off", "Right", "Left", "Both", "Decrease", "Increase" }, "Start")]
+    [TouchPortalActionChoice(new [] { "1", "2", "3", "4" }, "1")]
+    [TouchPortalActionChoice(new [] { "Start", "Off", "Right", "Left", "Both", "Decrease", "Increase" }, "Start")]
     public object MAGNETO_SPECIFIC { get; }
 
     #endregion
@@ -37,7 +37,7 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     #region Starters
 
     [TouchPortalAction("Starters", "Toggle Starters", "MSFS", "Toggle Starters", "Toggle Starter - {0}")]
-    [TouchPortalActionChoice(new string[] { "All", "1", "2", "3", "4" }, "All")]
+    [TouchPortalActionChoice(new [] { "All", "1", "2", "3", "4" }, "All")]
     public object STARTERS { get; }
 
     #endregion
@@ -45,12 +45,12 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     #region Throttle
 
     [TouchPortalAction("Throttle", "Throttle", "MSFS", "Sets all throttles", "All Throttles - {0}")]
-    [TouchPortalActionChoice(new string[] { "Full", "Increase", "Increase Small", "Decrease", "Decrease Small", "Cut", "Set", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%" }, "Full")]
+    [TouchPortalActionChoice(new [] { "Full", "Increase", "Increase Small", "Decrease", "Decrease Small", "Cut", "Set", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%" }, "Full")]
     public object THROTTLE { get; }
 
     [TouchPortalAction("ThrottleSpecific", "Throttle Specific", "MSFS", "Sets Throttle on specific engine", "Throttle {0} - {1}")]
-    [TouchPortalActionChoice(new string[] { "1", "2", "3", "4" }, "1")]
-    [TouchPortalActionChoice(new string[] { "Full", "Increase", "Increase Small", "Decrease", "Decrease Small", "Cut" }, "Full")]
+    [TouchPortalActionChoice(new [] { "1", "2", "3", "4" }, "1")]
+    [TouchPortalActionChoice(new [] { "Full", "Increase", "Increase Small", "Decrease", "Decrease Small", "Cut" }, "Full")]
     public object THROTTLE_SPECIFIC { get; }
 
 
@@ -75,12 +75,12 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     #region Mixture
 
     [TouchPortalAction("Mixture", "Mixture", "MSFS", "Sets all mixtures", "All Mixtures - {0}")]
-    [TouchPortalActionChoice(new string[] { "Rich", "Increase", "Increase Small", "Decrease", "Decrease Small", "Lean", "Best", "Set" }, "Rich")]
+    [TouchPortalActionChoice(new [] { "Rich", "Increase", "Increase Small", "Decrease", "Decrease Small", "Lean", "Best", "Set" }, "Rich")]
     public object MIXTURE { get; }
 
     [TouchPortalAction("MixtureSpecific", "Mixture Specific", "MSFS", "Sets mixture on specific engine", "Mixture {0} - {1}")]
-    [TouchPortalActionChoice(new string[] { "1", "2", "3", "4" }, "1")]
-    [TouchPortalActionChoice(new string[] { "Rich", "Increase", "Increase Small", "Decrease", "Decrease Small", "Lean" }, "Rich")]
+    [TouchPortalActionChoice(new [] { "1", "2", "3", "4" }, "1")]
+    [TouchPortalActionChoice(new [] { "Rich", "Increase", "Increase Small", "Decrease", "Decrease Small", "Lean" }, "Rich")]
     public object MIXTURE_SPECIFIC { get; }
 
     [SimVarDataRequest]
@@ -205,91 +205,91 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     MAGNETO_INCR,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "1", "Off" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "1", "Off" })]
     MAGNETO1_OFF,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "1", "Right" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "1", "Right" })]
     MAGNETO1_RIGHT,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "1", "Left" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "1", "Left" })]
     MAGNETO1_LEFT,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "1", "Both" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "1", "Both" })]
     MAGNETO1_BOTH,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "1", "Start" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "1", "Start" })]
     MAGNETO1_START,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "1", "Decrease" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "1", "Decrease" })]
     MAGNETO1_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "1", "Increase" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "1", "Increase" })]
     MAGNETO1_INCR,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "2", "Off" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "2", "Off" })]
     MAGNETO2_OFF,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "2", "Right" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "2", "Right" })]
     MAGNETO2_RIGHT,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "2", "Left" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "2", "Left" })]
     MAGNETO2_LEFT,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "2", "Both" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "2", "Both" })]
     MAGNETO2_BOTH,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "2", "Start" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "2", "Start" })]
     MAGNETO2_START,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "2", "Decrease" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "2", "Decrease" })]
     MAGNETO2_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "2", "Increase" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "2", "Increase" })]
     MAGNETO2_INCR,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "3", "Off" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "3", "Off" })]
     MAGNETO3_OFF,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "3", "Right" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "3", "Right" })]
     MAGNETO3_RIGHT,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "3", "Left" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "3", "Left" })]
     MAGNETO3_LEFT,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "3", "Both" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "3", "Both" })]
     MAGNETO3_BOTH,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "3", "Start" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "3", "Start" })]
     MAGNETO3_START,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "3", "Decrease" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "3", "Decrease" })]
     MAGNETO3_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "3", "Increase" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "3", "Increase" })]
     MAGNETO3_INCR,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "4", "Off" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "4", "Off" })]
     MAGNETO4_OFF,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "4", "Right" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "4", "Right" })]
     MAGNETO4_RIGHT,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "4", "Left" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "4", "Left" })]
     MAGNETO4_LEFT,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "4", "Both" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "4", "Both" })]
     MAGNETO4_BOTH,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "4", "Start" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "4", "Start" })]
     MAGNETO4_START,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "4", "Decrease" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "4", "Decrease" })]
     MAGNETO4_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MagnetoSpecific", new string[] { "4", "Increase" })]
+    [TouchPortalActionMapping("MagnetoSpecific", new [] { "4", "Increase" })]
     MAGNETO4_INCR,
 
     MAGNETO_SET,
@@ -372,79 +372,79 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     THROTTLE_90,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "1", "Full" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "1", "Full" })]
     THROTTLE1_FULL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "1", "Increase" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "1", "Increase" })]
     THROTTLE1_INCR,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "1", "Increase Small" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "1", "Increase Small" })]
     THROTTLE1_INCR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "1", "Descrease" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "1", "Descrease" })]
     THROTTLE1_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "1", "Descrease Small" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "1", "Descrease Small" })]
     THROTTLE1_DECR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "1", "Cut" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "1", "Cut" })]
     THROTTLE1_CUT,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "2", "Full" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "2", "Full" })]
     THROTTLE2_FULL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "2", "Increase" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "2", "Increase" })]
     THROTTLE2_INCR,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "2", "Increase Small" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "2", "Increase Small" })]
     THROTTLE2_INCR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "2", "Descrease" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "2", "Descrease" })]
     THROTTLE2_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "2", "Descrease Small" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "2", "Descrease Small" })]
     THROTTLE2_DECR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "2", "Cut" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "2", "Cut" })]
     THROTTLE2_CUT,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "3", "Full" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "3", "Full" })]
     THROTTLE3_FULL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "3", "Increase" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "3", "Increase" })]
     THROTTLE3_INCR,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "3", "Increase Small" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "3", "Increase Small" })]
     THROTTLE3_INCR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "3", "Descrease" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "3", "Descrease" })]
     THROTTLE3_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "3", "Descrease Small" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "3", "Descrease Small" })]
     THROTTLE3_DECR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "3", "Cut" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "3", "Cut" })]
     THROTTLE3_CUT,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "4", "Full" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "4", "Full" })]
     THROTTLE4_FULL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "4", "Increase" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "4", "Increase" })]
     THROTTLE4_INCR,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "4", "Increase Small" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "4", "Increase Small" })]
     THROTTLE4_INCR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "4", "Descrease" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "4", "Descrease" })]
     THROTTLE4_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "4", "Descrease Small" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "4", "Descrease Small" })]
     THROTTLE4_DECR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("ThrottleSpecific", new string[] { "4", "Cut" })]
+    [TouchPortalActionMapping("ThrottleSpecific", new [] { "4", "Cut" })]
     THROTTLE4_CUT,
 
     THROTTLE1_SET,
@@ -482,79 +482,79 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     MIXTURE_SET_BEST,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "1", "Rich" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "1", "Rich" })]
     MIXTURE1_RICH,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "1", "Increase" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "1", "Increase" })]
     MIXTURE1_INCR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "1", "Increase Small" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "1", "Increase Small" })]
     MIXTURE1_INCR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "1", "Decrease" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "1", "Decrease" })]
     MIXTURE1_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "1", "Decrease Small" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "1", "Decrease Small" })]
     MIXTURE1_DECR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "1", "Lean" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "1", "Lean" })]
     MIXTURE1_LEAN,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "2", "Rich" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "2", "Rich" })]
     MIXTURE2_RICH,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "2", "Increase" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "2", "Increase" })]
     MIXTURE2_INCR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "2", "Increase Small" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "2", "Increase Small" })]
     MIXTURE2_INCR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "2", "Decrease" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "2", "Decrease" })]
     MIXTURE2_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "2", "Decrease Small" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "2", "Decrease Small" })]
     MIXTURE2_DECR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "2", "Lean" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "2", "Lean" })]
     MIXTURE2_LEAN,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "3", "Rich" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "3", "Rich" })]
     MIXTURE3_RICH,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "3", "Increase" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "3", "Increase" })]
     MIXTURE3_INCR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "3", "Increase Small" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "3", "Increase Small" })]
     MIXTURE3_INCR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "3", "Decrease" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "3", "Decrease" })]
     MIXTURE3_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "3", "Decrease Small" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "3", "Decrease Small" })]
     MIXTURE3_DECR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "3", "Lean" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "3", "Lean" })]
     MIXTURE3_LEAN,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "4", "Rich" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "4", "Rich" })]
     MIXTURE4_RICH,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "4", "Increase" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "4", "Increase" })]
     MIXTURE4_INCR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "4", "Increase Small" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "4", "Increase Small" })]
     MIXTURE4_INCR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "4", "Decrease" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "4", "Decrease" })]
     MIXTURE4_DECR,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "4", "Decrease Small" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "4", "Decrease Small" })]
     MIXTURE4_DECR_SMALL,
     [SimActionEvent]
-    [TouchPortalActionMapping("MixtureSpecific", new string[] { "4", "Lean" })]
+    [TouchPortalActionMapping("MixtureSpecific", new [] { "4", "Lean" })]
     MIXTURE4_LEAN,
 
     MIXTURE1_SET,

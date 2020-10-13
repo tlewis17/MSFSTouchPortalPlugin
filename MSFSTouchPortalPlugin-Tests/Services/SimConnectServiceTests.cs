@@ -9,7 +9,6 @@ namespace MSFSTouchPortalPlugin_Tests.Services {
     [Fact]
     public void SimConnectService_Disconnect() {
       // arrange
-      //var service = new SimConnectService();
 
       // act
 

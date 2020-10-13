@@ -30,16 +30,16 @@ namespace MSFSTouchPortalPlugin_Generator {
 
     private DocBase CreateModel() {
       // Load asembly
-      var c = MSFSTouchPortalPlugin.Objects.AutoPilot.AutoPilot.AP_AIRSPEED_HOLD;
+      var _ = MSFSTouchPortalPlugin.Objects.AutoPilot.AutoPilot.AP_AIRSPEED_HOLD;
 
       // Find assembly
       var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(a => a.Name == _PLUGIN_NAME).FirstOrDefault();
 
       if (a == null) {
-        throw new Exception("Unable to load assembly for reflection.");
+        throw new ApplicationException("Unable to load assembly for reflection.");
       }
 
-      var model = new DocBase() {
+      var model = new DocBase {
         Title = "MSFS 2020 TouchPortal Plugin",
         Overview = "This plugin will provide a two way interface between Touch Portal and Microsoft Flight Simulator 2020 through SimConnect."
       };

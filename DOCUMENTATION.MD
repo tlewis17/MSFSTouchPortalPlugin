@@ -106,6 +106,7 @@ This plugin will provide a two way interface between Touch Portal and Microsoft 
 | Mixture | Sets all mixtures | communicate | All Mixtures - {0} | **Rich**,Increase,Increase Small,Decrease,Decrease Small,Lean,Best,Set |
 | Mixture Specific | Sets mixture on specific engine | communicate | Mixture {0} - {1} | **1**,2,3,4 |
 | Throttle | Sets all throttles | communicate | All Throttles - {0} | **Full**,Increase,Increase Small,Decrease,Decrease Small,Cut,Set,10%,20%,30%,40%,50%,60%,70%,80%,90% |
+| Throttle Specific | Sets Throttle on specific engine | communicate | Throttle {0} - {1} | **1**,2,3,4 |
 | Toggle All Magnetos | Toggle All Magnetos | communicate | Toggle All Magnetos - {0} | **Start**,Off,Right,Left,Both,Decrease,Increase |
 | Toggle Starters | Toggle Starters | communicate | Toggle Starter - {0} | **All**,1,2,3,4 |
 

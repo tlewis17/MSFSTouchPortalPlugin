@@ -12,8 +12,19 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
 
     [SimVarDataRequest]
     [TouchPortalState("GroundVelocity", "text", "Ground Speed in Knots", "")]
-    public static SimVarItem GroundVelocity = new SimVarItem() { def = Definition.GroundVelocity, req = Request.GroundVelocity, SimVarName = "GROUND VELOCITY", Unit = Units.knots, CanSet = false, StringFormat = "{0:0.#}" };
+    public static SimVarItem GroundVelocity = new SimVarItem() { def = Definition.GroundVelocity, req = Request.GroundVelocity, SimVarName = "GROUND VELOCITY", Unit = Units.knots, CanSet = false, StringFormat = "{0:0.0#}" };
 
+    [SimVarDataRequest]
+    [TouchPortalState("AirSpeedTrue", "text", "Air speed true in Knots", "")]
+    public static SimVarItem AirSpeedTrue = new SimVarItem() { def = Definition.AirSpeedTrue, req = Request.AirSpeedTrue, SimVarName = "AIRSPEED TRUE", Unit = Units.knots, CanSet = true, StringFormat = "{0:0.0#}" };
+
+    [SimVarDataRequest]
+    [TouchPortalState("AirSpeedIndicated", "text", "Air speed indicated in Knots", "")]
+    public static SimVarItem AirSpeedIndicated = new SimVarItem() { def = Definition.AirSpeedIndicated, req = Request.AirSpeedIndicated, SimVarName = "AIRSPEED INDICATED", Unit = Units.knots, CanSet = true, StringFormat = "{0:0.0#}" };
+
+    [SimVarDataRequest]
+    [TouchPortalState("AirSpeedMach", "text", "Air speed indicated in mach", "")]
+    public static SimVarItem AirSpeedMach = new SimVarItem() { def = Definition.AirSpeedMach, req = Request.AirSpeedMach, SimVarName = "AIRSPEED MACH", Unit = Units.mach, CanSet = true, StringFormat = "{0:0.0#}" };
     #endregion
 
     #region Altitude
@@ -53,6 +64,26 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     [SimVarDataRequest]
     [TouchPortalState("PlanePitchAngle", "text", "Plane Pitch Angle in Degrees", "")]
     public static SimVarItem PlanePitchAngle = new SimVarItem() { def = Definition.PlanePitchAngle, req = Request.PlanePitchAngle, SimVarName = "PLANE PITCH DEGREES", Unit = Units.radians, CanSet = false, StringFormat = "{0:0}" };
+
+    [SimVarDataRequest]
+    [TouchPortalState("VerticalSpeed", "text", "Vertical Speed in feet per minute", "")]
+    public static SimVarItem VerticalSpeed = new SimVarItem { def = Definition.VerticalSpeed, req = Request.VerticalSpeed, SimVarName = "VERTICAL SPEED", Unit = Units.feetminute, CanSet = true, StringFormat = "{0:0.0#}" };
+
+      #endregion
+
+      #region Warnings
+
+    [SimVarDataRequest]
+    [TouchPortalState("StallWarning", "text", "Stall Warning true/false", "")]
+    public static SimVarItem StallWarning = new SimVarItem { def = Definition.StallWarning, req = Request.StallWarning, SimVarName = "STALL WARNING", Unit = Units.Bool, CanSet = false };
+
+    [SimVarDataRequest]
+    [TouchPortalState("OverspeedWarning", "text", "Overspeed Warning true/false", "")]
+    public static SimVarItem OverspeedWarning = new SimVarItem { def = Definition.OverspeedWarning, req = Request.OverspeedWarning, SimVarName = "OVERSPEED WARNING", Unit = Units.Bool, CanSet = false };
+
+    [SimVarDataRequest]
+    [TouchPortalState("FlapSpeedExceeeded", "text", "Flap Speed Exceeded Warning true/false", "")]
+    public static SimVarItem FlapSpeedExceeeded = new SimVarItem { def = Definition.FlapSpeedExceeeded, req = Request.FlapSpeedExceeeded, SimVarName = "FLAP SPEED EXCEEDED", Unit = Units.Bool, CanSet = false };
 
     #endregion
 

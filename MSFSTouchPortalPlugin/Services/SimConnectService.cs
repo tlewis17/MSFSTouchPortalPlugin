@@ -22,9 +22,9 @@ namespace MSFSTouchPortalPlugin.Services {
 
     const uint NOTIFICATION_PRIORITY = 10000000;
     const int WM_USER_SIMCONNECT = 0x0402;
-    SimConnect _simConnect = null;
+    SimConnect _simConnect;
     readonly EventWaitHandle _scReady = new EventWaitHandle(false, EventResetMode.AutoReset);
-    private bool _connected = false;
+    private bool _connected;
     
     public event DataUpdateEventHandler OnDataUpdateEvent;
     public event ConnectEventHandler OnConnect;
@@ -68,7 +68,7 @@ namespace MSFSTouchPortalPlugin.Services {
         _simConnect.Text(SIMCONNECT_TEXT_TYPE.PRINT_BLACK, 5, Events.StartupMessage, "TouchPortal Connected");
 
         // Invoke Handler
-        OnConnect();
+        OnConnect?.Invoke();
 
         return true;
       } catch (COMException ex) {
@@ -88,9 +88,9 @@ namespace MSFSTouchPortalPlugin.Services {
       }
 
       _connected = false;
-      
+
       // Invoke Handler
-      OnDisconnect();
+      OnDisconnect?.Invoke();
     }
 
     public Task WaitForMessage(CancellationToken cancellationToken) {
@@ -155,7 +155,7 @@ namespace MSFSTouchPortalPlugin.Services {
 
     private void Simconnect_OnRecvSimobjectDataBytype(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE data) {
       if (data.dwData.Length > 0) {
-        OnDataUpdateEvent((Definition)data.dwDefineID, (Definition)data.dwRequestID, data.dwData[0]);
+        OnDataUpdateEvent?.Invoke((Definition)data.dwDefineID, (Definition)data.dwRequestID, data.dwData[0]);
       }
 
     }
@@ -201,7 +201,7 @@ namespace MSFSTouchPortalPlugin.Services {
     }
 
     #region IDisposable Support
-    private bool disposedValue = false; // To detect redundant calls
+    private bool disposedValue; // To detect redundant calls
 
     protected virtual void Dispose(bool disposing) {
       if (!disposedValue) {

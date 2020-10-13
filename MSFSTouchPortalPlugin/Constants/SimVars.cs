@@ -114,7 +114,7 @@ namespace MSFSTouchPortalPlugin.Constants {
     public Definition Def { get; set; }
     public string SimVarName { get; set; }
     public string Unit { get; set; }
-    public bool CanSet { get; set; } = false;
+    public bool CanSet { get; set; }
     public DateTime LastPending { get; set; } = DateTime.Now;
     public string Value { get; set; } = string.Empty;
     public string StringFormat { get; set; } = "{0}";

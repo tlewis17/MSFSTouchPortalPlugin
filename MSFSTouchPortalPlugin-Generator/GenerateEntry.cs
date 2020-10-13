@@ -4,6 +4,7 @@ using MSFSTouchPortalPlugin_Generator.Configuration;
 using MSFSTouchPortalPlugin_Generator.Interfaces;
 using MSFSTouchPortalPlugin_Generator.Model;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -20,11 +21,15 @@ namespace MSFSTouchPortalPlugin_Generator {
     public GenerateEntry(ILogger<GenerateEntry> logger, IOptions<GeneratorOptions> options) {
       _logger = logger;
       _options = options;
+
+      JsonConvert.DefaultSettings = () => new JsonSerializerSettings {
+        ContractResolver = new CamelCasePropertyNamesContractResolver()
+      };
     }
 
     public void Generate() {
       // Find assembly
-      var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(a => a.Name == _options.Value.PluginName).FirstOrDefault();
+      var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().FirstOrDefault(a => a.Name == _options.Value.PluginName);
 
       if (a == null) {
         throw new ArgumentNullException("Unable to load assembly for reflection.");
@@ -37,17 +42,17 @@ namespace MSFSTouchPortalPlugin_Generator {
 
       // Setup Base Model
       var model = new Base {
-        sdk = 2,
-        version = int.Parse(version.Replace(".", "")),
-        name = _options.Value.PluginName,
-        id = _options.Value.PluginName
+        Sdk = 2,
+        Version = int.Parse(version.Replace(".", "")),
+        Name = _options.Value.PluginName,
+        Id = _options.Value.PluginName
       };
 
       // Add Configuration
       // Add Plug Start Comand
-      model.plugin_start_cmd = Path.Combine("%TP_PLUGIN_FOLDER%", "MSFS-TouchPortal-Plugin\\dist", "MSFSTouchPortalPlugin.exe");
+      model.Plugin_start_cmd = Path.Combine("%TP_PLUGIN_FOLDER%", "MSFS-TouchPortal-Plugin\\dist", "MSFSTouchPortalPlugin.exe");
       // Load asembly
-      var _ = MSFSTouchPortalPlugin.Objects.AutoPilot.AutoPilot.AP_AIRSPEED_HOLD;
+      var l = MSFSTouchPortalPlugin.Objects.AutoPilot.AutoPilot.AP_AIRSPEED_HOLD;
 
       var q = assembly.GetTypes().ToList();
 
@@ -58,9 +63,9 @@ namespace MSFSTouchPortalPlugin_Generator {
       s.ForEach(cat => {
         var att = (TouchPortalCategoryAttribute)Attribute.GetCustomAttribute(cat, typeof(TouchPortalCategoryAttribute));
         var category = new TouchPortalCategory {
-          id = $"{_options.Value.PluginName}.{att.Id}",
-          name = att.Name,
-          imagepath = att.ImagePath
+          Id = $"{_options.Value.PluginName}.{att.Id}",
+          Name = att.Name,
+          Imagepath = att.ImagePath
         };
 
         // Add actions
@@ -68,68 +73,68 @@ namespace MSFSTouchPortalPlugin_Generator {
         actions.ForEach(act => {
           var actionAttribute = (TouchPortalActionAttribute)Attribute.GetCustomAttribute(act, typeof(TouchPortalActionAttribute));
           var action = new TouchPortalAction {
-            id = $"{category.id}.Action.{actionAttribute.Id}",
-            name = actionAttribute.Name,
-            prefix = actionAttribute.Prefix,
-            type = actionAttribute.Type,
-            description = actionAttribute.Description,
-            tryInline = true,
-            format = actionAttribute.Format,
+            Id = $"{category.Id}.Action.{actionAttribute.Id}",
+            Name = actionAttribute.Name,
+            Prefix = actionAttribute.Prefix,
+            Type = actionAttribute.Type,
+            Description = actionAttribute.Description,
+            TryInline = true,
+            Format = actionAttribute.Format,
           };
 
           // Has Choices
           var choiceAttributes = act.GetCustomAttributes<TouchPortalActionChoiceAttribute>()?.ToList();
 
-          if (choiceAttributes.Count > 0) {
+          if (choiceAttributes?.Count > 0) {
             for (int i = 0; i < choiceAttributes.Count; i++) {
               var data = new TouchPortalActionData {
-                id = $"{action.id}.Data.{i}",
-                type = "choice",
-                label = "Action",
-                defaultValue = choiceAttributes[i].DefaultValue,
-                valueChoices = choiceAttributes[i].ChoiceValues
+                Id = $"{action.Id}.Data.{i}",
+                Type = "choice",
+                Label = "Action",
+                DefaultValue = choiceAttributes[i].DefaultValue,
+                ValueChoices = choiceAttributes[i].ChoiceValues
               };
 
-              action.data.Add(data);
+              action.Data.Add(data);
             }
-            action.format = string.Format(action.format, action.data.Select(d => $"{{${d.id}$}}").ToArray());
+            action.Format = string.Format(action.Format, action.Data.Select(d => $"{{${d.Id}$}}").ToArray());
           }
 
-          category.actions.Add(action);
+          category.Actions.Add(action);
         });
 
         // Ordering
-        category.actions = category.actions.OrderBy(c => c.name).ToList();
+        category.Actions = category.Actions.OrderBy(c => c.Name).ToList();
 
         // TODO: Non-Choice Types
 
-        // TODO: Add states
+        // States
         var states = cat.GetMembers().Where(t => t.CustomAttributes.Any(att => att.AttributeType == typeof(TouchPortalStateAttribute))).ToList();
         states.ForEach(state => {
           var stateAttribute = state.GetCustomAttribute<TouchPortalStateAttribute>();
 
           if (stateAttribute != null) {
             var newState = new TouchPortalState {
-              id = $"{category.id}.State.{stateAttribute.Id}",
-              type = stateAttribute.Type,
-              description = $"{category.name} - {stateAttribute.Description}",
-              defaultValue = stateAttribute.Default
+              Id = $"{category.Id}.State.{stateAttribute.Id}",
+              Type = stateAttribute.Type,
+              Description = $"{category.Name} - {stateAttribute.Description}",
+              DefaultValue = stateAttribute.Default
             };
 
-            category.states.Add(newState);
+            category.States.Add(newState);
           }
         });
 
         // Ordering
-        category.states = category.states.OrderBy(c => c.description).ToList();
+        category.States = category.States.OrderBy(c => c.Description).ToList();
 
         // TODO: Add events
 
-        model.categories.Add(category);
+        model.Categories.Add(category);
       });
 
       // Ordering
-      model.categories = model.categories.OrderBy(c => c.name).ToList();
+      model.Categories = model.Categories.OrderBy(c => c.Name).ToList();
 
       var context = new ValidationContext(model, null, null);
       var errors = new Collection<ValidationResult>();

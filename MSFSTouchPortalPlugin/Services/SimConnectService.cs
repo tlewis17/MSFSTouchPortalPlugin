@@ -45,16 +45,16 @@ namespace MSFSTouchPortalPlugin.Services {
         _connected = true;
 
         // System Events
-        _simConnect.OnRecvOpen += new SimConnect.RecvOpenEventHandler(simconnect_OnRecvOpen);
-        _simConnect.OnRecvQuit += new SimConnect.RecvQuitEventHandler(simconnect_OnRecvQuit);
-        _simConnect.OnRecvException += new SimConnect.RecvExceptionEventHandler(simconnect_OnRecvException);
+        _simConnect.OnRecvOpen += new SimConnect.RecvOpenEventHandler(Simconnect_OnRecvOpen);
+        _simConnect.OnRecvQuit += new SimConnect.RecvQuitEventHandler(Simconnect_OnRecvQuit);
+        _simConnect.OnRecvException += new SimConnect.RecvExceptionEventHandler(Simconnect_OnRecvException);
 
         // Sim mapped events
-        _simConnect.OnRecvEvent += new SimConnect.RecvEventEventHandler(simconnect_OnRecvEvent);
+        _simConnect.OnRecvEvent += new SimConnect.RecvEventEventHandler(Simconnect_OnRecvEvent);
 
         // Sim Data
-        _simConnect.OnRecvSimobjectData += new SimConnect.RecvSimobjectDataEventHandler(simconnect_OnRecvSimObjectData);
-        _simConnect.OnRecvSimobjectDataBytype += new SimConnect.RecvSimobjectDataBytypeEventHandler(simconnect_OnRecvSimobjectDataBytype);
+        _simConnect.OnRecvSimobjectData += new SimConnect.RecvSimobjectDataEventHandler(Simconnect_OnRecvSimObjectData);
+        _simConnect.OnRecvSimobjectDataBytype += new SimConnect.RecvSimobjectDataBytypeEventHandler(Simconnect_OnRecvSimobjectDataBytype);
 
         _simConnect.ClearNotificationGroup(Groups.System);
         _simConnect.SetNotificationGroupPriority(Groups.System, NOTIFICATION_PRIORITY);
@@ -96,7 +96,6 @@ namespace MSFSTouchPortalPlugin.Services {
     public Task WaitForMessage(CancellationToken cancellationToken) {
       while (_connected && !cancellationToken.IsCancellationRequested) {
         if (_scReady.WaitOne(TimeSpan.FromSeconds(5))) {
-          // TODO: Exception on quit
           _simConnect?.ReceiveMessage();
         }
       }
@@ -115,7 +114,7 @@ namespace MSFSTouchPortalPlugin.Services {
 
     public bool TransmitClientEvent(Groups group, Enum eventId, uint data) {
       if (_connected) {
-        _simConnect.TransmitClientEvent((uint)SimConnect.SIMCONNECT_OBJECT_ID_USER, eventId, data, group, SIMCONNECT_EVENT_FLAG.GROUPID_IS_PRIORITY);
+        _simConnect.TransmitClientEvent(SimConnect.SIMCONNECT_OBJECT_ID_USER, eventId, data, group, SIMCONNECT_EVENT_FLAG.GROUPID_IS_PRIORITY);
         return true;
       }
 
@@ -149,23 +148,23 @@ namespace MSFSTouchPortalPlugin.Services {
       return false;
     }
 
-    private void simconnect_OnRecvQuit(SimConnect sender, SIMCONNECT_RECV data) {
+    private void Simconnect_OnRecvQuit(SimConnect sender, SIMCONNECT_RECV data) {
       _logger.LogInformation("Quit");
       Disconnect();
     }
 
-    private void simconnect_OnRecvSimobjectDataBytype(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE data) {
+    private void Simconnect_OnRecvSimobjectDataBytype(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE data) {
       if (data.dwData.Length > 0) {
         OnDataUpdateEvent((Definition)data.dwDefineID, (Definition)data.dwRequestID, data.dwData[0]);
       }
 
     }
 
-    private void simconnect_OnRecvOpen(SimConnect sender, SIMCONNECT_RECV_OPEN data) {
+    private void Simconnect_OnRecvOpen(SimConnect sender, SIMCONNECT_RECV_OPEN data) {
       _logger.LogInformation("Opened");
     }
 
-    private void simconnect_OnRecvException(SimConnect sender, SIMCONNECT_RECV_EXCEPTION data) {
+    private void Simconnect_OnRecvException(SimConnect sender, SIMCONNECT_RECV_EXCEPTION data) {
       SIMCONNECT_EXCEPTION eException = (SIMCONNECT_EXCEPTION)data.dwException;
       _logger.LogError("SimConnect_OnRecvException: {exception}", eException.ToString());
     }
@@ -175,7 +174,7 @@ namespace MSFSTouchPortalPlugin.Services {
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="data"></param>
-    private void simconnect_OnRecvEvent(SimConnect sender, SIMCONNECT_RECV_EVENT data) {
+    private void Simconnect_OnRecvEvent(SimConnect sender, SIMCONNECT_RECV_EVENT data) {
       Groups group = (Groups)data.uGroupID;
       dynamic eventId = null;
 
@@ -197,7 +196,7 @@ namespace MSFSTouchPortalPlugin.Services {
       _logger.LogInformation($"{DateTime.Now} Recieved: {group} - {eventId}");
     }
 
-    private void simconnect_OnRecvSimObjectData(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA data) {
+    private void Simconnect_OnRecvSimObjectData(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA data) {
       // Empty method for now, not implemented
     }
 
@@ -207,7 +206,7 @@ namespace MSFSTouchPortalPlugin.Services {
     protected virtual void Dispose(bool disposing) {
       if (!disposedValue) {
         if (disposing) {
-          // TODO: dispose managed state (managed objects).
+          // Dispose managed state (managed objects).
           _scReady.Dispose();
         }
 

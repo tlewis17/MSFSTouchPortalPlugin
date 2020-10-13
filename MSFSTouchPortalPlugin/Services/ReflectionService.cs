@@ -67,15 +67,13 @@ namespace MSFSTouchPortalPlugin.Services {
 
       var stateFieldList = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.IsClass && t.GetCustomAttribute<SimVarDataRequestGroupAttribute>() != null).ToList();
       stateFieldList.ForEach(stateFieldClass => {
-        string catName = stateFieldClass.GetCustomAttribute<TouchPortalCategoryAttribute>().Name;
-
         // Get all States and register to SimConnect
         var states = stateFieldClass.GetFields().Where(m => m.CustomAttributes.Any(att => att.AttributeType == typeof(SimVarDataRequestAttribute))).ToList();
         states.ForEach(s => {
           // Evaluate and setup the Touch Portal State ID
           string catId = stateFieldClass.GetCustomAttribute<TouchPortalCategoryAttribute>().Id;
           var item = (SimVarItem)s.GetValue(null);
-          item.TouchPortalStateId = $"{rootName}.{catId}.State.{item.Def.ToString()}";
+          item.TouchPortalStateId = $"{rootName}.{catId}.State.{item.Def}";
 
           returnDict.TryAdd(item.Def, item);
         });

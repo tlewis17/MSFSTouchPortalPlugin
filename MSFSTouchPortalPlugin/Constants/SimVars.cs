@@ -1,5 +1,4 @@
-﻿using MSFSTouchPortalPlugin.Attributes;
-using System;
+﻿using System;
 
 namespace MSFSTouchPortalPlugin.Constants {
   public enum Definition {
@@ -111,16 +110,15 @@ namespace MSFSTouchPortalPlugin.Constants {
   /// The SimVarItem which defines all data variables for SimConnect
   /// </summary>
   public class SimVarItem {
-    public Definition def;
-    public string SimVarName;
-    public string Unit;
-    public bool CanSet = false;
-    public DateTime LastPending = DateTime.Now;
-    public string Value = string.Empty;
-    public string StringFormat = "{0}";
-    public string TouchPortalStateId = "";
-
     public bool PendingRequest { get; private set; }
+    public Definition Def { get; set; }
+    public string SimVarName { get; set; }
+    public string Unit { get; set; }
+    public bool CanSet { get; set; } = false;
+    public DateTime LastPending { get; set; } = DateTime.Now;
+    public string Value { get; set; } = string.Empty;
+    public string StringFormat { get; set; } = "{0}";
+    public string TouchPortalStateId { get; set; } = "";
 
     /// <summary>
     /// Updates the object to either set pending update or no longer pending

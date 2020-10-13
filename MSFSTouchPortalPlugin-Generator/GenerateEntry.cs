@@ -1,4 +1,8 @@
-﻿using MSFSTouchPortalPlugin_Generator.Model;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using MSFSTouchPortalPlugin_Generator.Configuration;
+using MSFSTouchPortalPlugin_Generator.Interfaces;
+using MSFSTouchPortalPlugin_Generator.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
@@ -9,18 +13,18 @@ using System.Reflection;
 using TouchPortalExtension.Attributes;
 
 namespace MSFSTouchPortalPlugin_Generator {
-  public class GenerateEntry {
-    private readonly string _PLUGIN_NAME = "";
-    private readonly string _TARGET_PATH = "";
+  internal class GenerateEntry : IGenerateEntry {
+    private readonly ILogger<GenerateEntry> _logger;
+    private readonly IOptions<GeneratorOptions> _options;
 
-    public GenerateEntry(string pluginName, string targetPath) {
-      _PLUGIN_NAME = pluginName;
-      _TARGET_PATH = targetPath;
+    public GenerateEntry(ILogger<GenerateEntry> logger, IOptions<GeneratorOptions> options) {
+      _logger = logger;
+      _options = options;
     }
 
     public void Generate() {
       // Find assembly
-      var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(a => a.Name == _PLUGIN_NAME).FirstOrDefault();
+      var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(a => a.Name == _options.Value.PluginName).FirstOrDefault();
 
       if (a == null) {
         throw new ArgumentNullException("Unable to load assembly for reflection.");
@@ -35,8 +39,8 @@ namespace MSFSTouchPortalPlugin_Generator {
       var model = new Base {
         sdk = 2,
         version = int.Parse(version.Replace(".", "")),
-        name = _PLUGIN_NAME,
-        id = _PLUGIN_NAME
+        name = _options.Value.PluginName,
+        id = _options.Value.PluginName
       };
 
       // Add Configuration
@@ -54,7 +58,7 @@ namespace MSFSTouchPortalPlugin_Generator {
       s.ForEach(cat => {
         var att = (TouchPortalCategoryAttribute)Attribute.GetCustomAttribute(cat, typeof(TouchPortalCategoryAttribute));
         var category = new TouchPortalCategory {
-          id = $"{_PLUGIN_NAME}.{att.Id}",
+          id = $"{_options.Value.PluginName}.{att.Id}",
           name = att.Name,
           imagepath = att.ImagePath
         };
@@ -137,8 +141,8 @@ namespace MSFSTouchPortalPlugin_Generator {
       }
 
       var result = JsonConvert.SerializeObject(model, Formatting.Indented);
-      File.WriteAllText(Path.Combine(_TARGET_PATH, "entry.tp"), result);
-      Console.WriteLine("entry.tp generated.");
+      File.WriteAllText(Path.Combine(_options.Value.TargetPath, "entry.tp"), result);
+      _logger.LogInformation("entry.tp generated.");
     }
   }
 }

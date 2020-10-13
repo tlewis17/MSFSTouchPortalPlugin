@@ -58,7 +58,7 @@ namespace MSFSTouchPortalPlugin.Services {
       Task.Run(_messageProcessor.TryPairAsync);
 
       // On Data Update
-      _simConnectService.OnDataUpdateEvent += ((Definition def, Request req, object data) => {
+      _simConnectService.OnDataUpdateEvent += ((Definition def, Definition req, object data) => {
         // Lookup State Mapping
         if (statesDictionary.TryGetValue(def, out var value)) {
           var stringVal = data.ToString();

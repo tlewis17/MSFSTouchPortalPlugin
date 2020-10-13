@@ -16,7 +16,7 @@ namespace MSFSTouchPortalPlugin.Objects.SimSystem {
     [TouchPortalActionChoice(new [] { "Increase", "Decrease" }, "Decrease")]
     [TouchPortalState("SimulationRate", "text", "The current simulation rate", "")]
     public static readonly SimVarItem SimulationRate =
-      new SimVarItem { def = Definition.SimulationRate, req = Request.SimulationRate, SimVarName = "SIMULATION RATE", Unit = Units.number, CanSet = false };
+      new SimVarItem { def = Definition.SimulationRate, SimVarName = "SIMULATION RATE", Unit = Units.number, CanSet = false };
   }
 
   [SimNotificationGroup(Groups.SimSystem)]

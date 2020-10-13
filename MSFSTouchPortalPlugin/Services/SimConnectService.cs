@@ -143,7 +143,7 @@ namespace MSFSTouchPortalPlugin.Services {
 
     public bool RequestDataOnSimObjectType(SimVarItem simVar) {
       if (_connected) {
-        _simConnect.RequestDataOnSimObjectType(simVar.req, simVar.def, 0, SIMCONNECT_SIMOBJECT_TYPE.USER);
+        _simConnect.RequestDataOnSimObjectType(simVar.def, simVar.def, 0, SIMCONNECT_SIMOBJECT_TYPE.USER);
       }
 
       return false;
@@ -156,7 +156,7 @@ namespace MSFSTouchPortalPlugin.Services {
 
     private void simconnect_OnRecvSimobjectDataBytype(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE data) {
       if (data.dwData.Length > 0) {
-        OnDataUpdateEvent((Definition)data.dwDefineID, (Request)data.dwRequestID, data.dwData[0]);
+        OnDataUpdateEvent((Definition)data.dwDefineID, (Definition)data.dwRequestID, data.dwData[0]);
       }
 
     }

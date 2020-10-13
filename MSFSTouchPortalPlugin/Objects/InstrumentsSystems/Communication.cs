@@ -9,8 +9,8 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
   internal class CommunicationMapping {
 
     [TouchPortalAction("Radios", "Radio Interaction", "MSFS", "Radio Interaction", "Radio {0} - {1}")]
-    [TouchPortalActionChoice(new string[] { "COM1", "COM2", "NAV1", "NAV2" }, "COM1")]
-    [TouchPortalActionChoice(new string[] { "Increase 25 KHz", "Increase 1 MHz", "Increase 25 KHz w/ Carry Digits", "Decrease 25 KHz", "Decrease 1Mhz", "Decrease 25 KHz w/ Carry Digits", "Standby Swap" }, "Increase 25 KHz")]
+    [TouchPortalActionChoice(new [] { "COM1", "COM2", "NAV1", "NAV2" }, "COM1")]
+    [TouchPortalActionChoice(new [] { "Increase 25 KHz", "Increase 1 MHz", "Increase 25 KHz w/ Carry Digits", "Decrease 25 KHz", "Decrease 1Mhz", "Decrease 25 KHz w/ Carry Digits", "Standby Swap" }, "Increase 25 KHz")]
     public object Radios { get; }
 
     [SimVarDataRequest]
@@ -63,91 +63,91 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
     #region Radios
 
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM1", "Standby Swap" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM1", "Standby Swap" })]
     COM_STBY_RADIO_SWAP,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM1", "Decrease 1Mhz" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM1", "Decrease 1Mhz" })]
     COM_RADIO_WHOLE_DEC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM1", "Increase 1 MHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM1", "Increase 1 MHz" })]
     COM_RADIO_WHOLE_INC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM1", "Decrease 25 KHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM1", "Decrease 25 KHz" })]
     COM_RADIO_FRACT_DEC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM1", "Decrease 25 KHz w/ Carry Digits" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM1", "Decrease 25 KHz w/ Carry Digits" })]
     COM_RADIO_FRACT_DEC_CARRY,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM1", "Increase 25 KHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM1", "Increase 25 KHz" })]
     COM_RADIO_FRACT_INC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM1", "Increase 25 KHz w/ Carry Digits" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM1", "Increase 25 KHz w/ Carry Digits" })]
     COM_RADIO_FRACT_INC_CARRY,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM2", "Standby Swap" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM2", "Standby Swap" })]
     COM2_RADIO_SWAP,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM2", "Decrease 1Mhz" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM2", "Decrease 1Mhz" })]
     COM2_RADIO_WHOLE_DEC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM2", "Increase 1 MHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM2", "Increase 1 MHz" })]
     COM2_RADIO_WHOLE_INC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM2", "Decrease 25 KHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM2", "Decrease 25 KHz" })]
     COM2_RADIO_FRACT_DEC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM2", "Decrease 25 KHz w/ Carry Digits" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM2", "Decrease 25 KHz w/ Carry Digits" })]
     COM2_RADIO_FRACT_DEC_CARRY,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM2", "Increase 25 KHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM2", "Increase 25 KHz" })]
     COM2_RADIO_FRACT_INC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "COM2", "Increase 25 KHz w/ Carry Digits" })]
+    [TouchPortalActionMapping("Radios", new [] { "COM2", "Increase 25 KHz w/ Carry Digits" })]
     COM2_RADIO_FRACT_INC_CARRY,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV1", "Standby Swap" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV1", "Standby Swap" })]
     NAV1_RADIO_SWAP,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV1", "Decrease 1Mhz" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV1", "Decrease 1Mhz" })]
     NAV1_RADIO_WHOLE_DEC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV1", "Increase 1 MHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV1", "Increase 1 MHz" })]
     NAV1_RADIO_WHOLE_INC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV1", "Decrease 25 KHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV1", "Decrease 25 KHz" })]
     NAV1_RADIO_FRACT_DEC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV1", "Decrease 25 KHz w/ Carry Digits" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV1", "Decrease 25 KHz w/ Carry Digits" })]
     NAV1_RADIO_FRACT_DEC_CARRY,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV1", "Increase 25 KHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV1", "Increase 25 KHz" })]
     NAV1_RADIO_FRACT_INC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV1", "Increase 25 KHz w/ Carry Digits" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV1", "Increase 25 KHz w/ Carry Digits" })]
     NAV1_RADIO_FRACT_INC_CARRY,
 
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV2", "Standby Swap" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV2", "Standby Swap" })]
     NAV2_RADIO_SWAP,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV2", "Decrease 1Mhz" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV2", "Decrease 1Mhz" })]
     NAV2_RADIO_WHOLE_DEC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV2", "Increase 1 MHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV2", "Increase 1 MHz" })]
     NAV2_RADIO_WHOLE_INC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV2", "Decrease 25 KHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV2", "Decrease 25 KHz" })]
     NAV2_RADIO_FRACT_DEC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV2", "Decrease 25 KHz w/ Carry Digits" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV2", "Decrease 25 KHz w/ Carry Digits" })]
     NAV2_RADIO_FRACT_DEC_CARRY,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV2", "Increase 25 KHz" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV2", "Increase 25 KHz" })]
     NAV2_RADIO_FRACT_INC,
     [SimActionEvent]
-    [TouchPortalActionMapping("Radios", new string[] { "NAV2", "Increase 25 KHz w/ Carry Digits" })]
+    [TouchPortalActionMapping("Radios", new [] { "NAV2", "Increase 25 KHz w/ Carry Digits" })]
     NAV2_RADIO_FRACT_INC_CARRY,
 
     COM_RADIO_SET,

@@ -47,8 +47,8 @@ namespace MSFSTouchPortalPlugin.Services {
     /// Initialized the Touch Portal Message Processor
     /// </summary>
     private void Initialize() {
-      _messageProcessor.OnActionEvent += new ActionEventHandler(messageProcessor_OnActionEvent);
-      _messageProcessor.OnListChangeEventHandler += new ListChangeEventHandler(messageProcessor_OnListChangeEventHandler);
+      _messageProcessor.OnActionEvent += new ActionEventHandler(MessageProcessor_OnActionEvent);
+      _messageProcessor.OnListChangeEventHandler += new ListChangeEventHandler(MessageProcessor_OnListChangeEventHandler);
       _messageProcessor.OnCloseEventHandler += () => {
         _logger.LogInformation($"{DateTime.Now} TP Request Close, terminating...");
         Environment.Exit(0);
@@ -134,7 +134,6 @@ namespace MSFSTouchPortalPlugin.Services {
     }
 
     private Task TryConnect() {
-      // TODO: Will this properly reconnect after starting sim, then existing sim?
       int i = 0;
 
       while (!_cancellationToken.IsCancellationRequested) {
@@ -184,11 +183,11 @@ namespace MSFSTouchPortalPlugin.Services {
 
     #region OnEvents
 
-    private void messageProcessor_OnListChangeEventHandler(string actionId, string value) {
+    private void MessageProcessor_OnListChangeEventHandler(string actionId, string value) {
       _logger.LogInformation($"{DateTime.Now} Choice Event Fired. ActionId: {actionId} Value: {value}");
     }
 
-    private void messageProcessor_OnActionEvent(string actionId, List<ActionData> dataList) {
+    private void MessageProcessor_OnActionEvent(string actionId, List<ActionData> dataList) {
       if (dataList.Count > 0) {
         var values = string.Join(",", dataList.Select(x => x.Value));
         ProcessEvent(actionId, values);
@@ -202,7 +201,6 @@ namespace MSFSTouchPortalPlugin.Services {
       if (internalEventsDictionary.TryGetValue($"{actionId}:{value}", out var internalEventResult)) {
         _logger.LogInformation($"{DateTime.Now} {internalEventResult} - Firing Internal Event");
 
-        // TODO: Modify Connect/Disconnect to re-setup events and notifications
         switch (internalEventResult) {
           case Plugin.ToggleConnection:
             if (_simConnectService.IsConnected()) {
@@ -234,8 +232,6 @@ namespace MSFSTouchPortalPlugin.Services {
         _logger.LogInformation($"{DateTime.Now} {eventResult} - Firing Event");
         var group = eventResult.GetType().GetCustomAttribute<SimNotificationGroupAttribute>().Group;
         _simConnectService.TransmitClientEvent(group, eventResult, 0);
-
-        return;
       }
     }
 
@@ -270,7 +266,7 @@ namespace MSFSTouchPortalPlugin.Services {
     protected virtual void Dispose(bool disposing) {
       if (!disposedValue) {
         if (disposing) {
-          // TODO: dispose managed state (managed objects).
+          // Dispose managed state (managed objects).
           _simConnectCancellationTokenSource.Dispose();
         }
 

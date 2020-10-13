@@ -21,7 +21,7 @@ namespace MSFSTouchPortalPlugin {
 
       // Ensure only one running instance
       const string mutextName = "MSFSTouchPortalPlugin";
-      var mutex = new Mutex(true, mutextName, out var createdNew);
+      _ = new Mutex(true, mutextName, out var createdNew);
 
       if (!createdNew) {
         logger.LogError($"{mutextName} is already running. Exiting application.");
@@ -36,7 +36,7 @@ namespace MSFSTouchPortalPlugin {
             opts.ServerPort = 12136;
           })
           .AddLogging()
-          .Configure<MSFSTouchPortalPluginOptions>((opt) => { })
+          .Configure<MsfsTouchPortalPlugin>((opt) => { })
           .AddHostedService<PluginService>()
           .AddSingleton<ISimConnectService, SimConnectService>()
           .AddSingleton<IReflectionService, ReflectionService>();

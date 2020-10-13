@@ -136,10 +136,8 @@ namespace MSFSTouchPortalPlugin.Constants {
     /// If pending for more than 30 seconds, timeout
     /// </summary>
     public void PendingTimeout() {
-      if (PendingRequest) {
-        if (DateTime.Now > LastPending.AddSeconds(30)) {
-          SetPending(false);
-        }
+      if (PendingRequest && DateTime.Now > LastPending.AddSeconds(30)) {
+        SetPending(false);
       }
     }
   }

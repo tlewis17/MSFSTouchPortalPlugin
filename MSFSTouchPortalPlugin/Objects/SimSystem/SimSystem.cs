@@ -7,10 +7,6 @@ namespace MSFSTouchPortalPlugin.Objects.SimSystem {
   [SimVarDataRequestGroup]
   [TouchPortalCategory("SimSystem", "MSFS - System")]
   internal static class SimSystemMapping {
-    //[TouchPortalAction("Pause", "Pause", "MSFS", "Toggle/On/Off Pause", "Pause - {0}")]
-    //[TouchPortalActionChoice(new [] { "Toggle", "On", "Off" }, "Toggle")]
-    //public object PAUSE { get; }
-
     [SimVarDataRequest]
     [TouchPortalAction("SimulationRate", "Simulation Rate", "MSFS", "Simulation Rate", "Rate {0}")]
     [TouchPortalActionChoice(new [] { "Increase", "Decrease" }, "Decrease")]

@@ -33,10 +33,10 @@ namespace MSFSTouchPortalPlugin_Generator {
 
     private DocBase CreateModel() {
       // Load asembly
-      var _ = MSFSTouchPortalPlugin.Objects.AutoPilot.AutoPilot.AP_AIRSPEED_HOLD;
+      var l = MSFSTouchPortalPlugin.Objects.AutoPilot.AutoPilot.AP_AIRSPEED_HOLD;
 
       // Find assembly
-      var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(a => a.Name == _options.Value.PluginName).FirstOrDefault();
+      var a = Assembly.GetExecutingAssembly().GetReferencedAssemblies().FirstOrDefault(a => a.Name == _options.Value.PluginName);
 
       if (a == null) {
         throw new ArgumentNullException("Unable to load assembly for reflection.");
@@ -74,7 +74,7 @@ namespace MSFSTouchPortalPlugin_Generator {
           // Loop through Action Data
           var choiceAttributes = act.GetCustomAttributes<TouchPortalActionChoiceAttribute>()?.ToList();
 
-          if (choiceAttributes.Count > 0) {
+          if (choiceAttributes?.Count > 0) {
             for (int i = 0; i < choiceAttributes.Count; i++) {
               var data = new DocActionData {
                 Type = "choice",
@@ -88,7 +88,6 @@ namespace MSFSTouchPortalPlugin_Generator {
           newCat.Actions.Add(newAct);
         });
 
-        // TODO add order by for actions/states/events.
         newCat.Actions = newCat.Actions.OrderBy(c => c.Name).ToList();
 
         // Loop through States
@@ -110,7 +109,7 @@ namespace MSFSTouchPortalPlugin_Generator {
 
         newCat.States = newCat.States.OrderBy(c => c.Description).ToList();
 
-        // Lop through Events
+        // Loop through Events
         // TODO: Need events
 
         model.Categories.Add(newCat);

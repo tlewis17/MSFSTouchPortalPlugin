@@ -38,7 +38,7 @@ namespace MSFSTouchPortalPlugin {
           .AddSingleton<IReflectionService, ReflectionService>();
         }).RunConsoleAsync();
       } catch (COMException ex) {
-
+        Console.WriteLine($"COMException: {ex.Message}");
       }
     }
   }

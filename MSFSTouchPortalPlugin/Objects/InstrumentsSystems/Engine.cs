@@ -6,18 +6,18 @@ using TouchPortalExtension.Attributes;
 namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
   [SimVarDataRequestGroup]
   [TouchPortalCategory("Engine", "MSFS - Engine")]
-  internal class EngineMapping {
+  internal static class EngineMapping {
 
     #region Ignition
 
     [SimVarDataRequest]
     [TouchPortalAction("MasterIgnition", "Master Ignition Switch", "MSFS", "Toggle Master Ignition Switch", "Toggle Master Ignition Switch")]
     [TouchPortalState("MasterIgnitionSwitch", "text", "Master Ignition Switch Status", "")]
-    public readonly static SimVarItem MASTER_IGNITION = new SimVarItem { def = Definition.MasterIgnitionSwitch, req = Request.MasterIgnitionSwitch, SimVarName = "MASTER IGNITION SWITCH", Unit = Units.Bool, CanSet = false };
+    public static readonly SimVarItem MASTER_IGNITION = new SimVarItem { def = Definition.MasterIgnitionSwitch, req = Request.MasterIgnitionSwitch, SimVarName = "MASTER IGNITION SWITCH", Unit = Units.Bool, CanSet = false };
 
     [TouchPortalAction("EngineAuto", "Engine Auto Start/Shutdown", "MSFS", "Start/Shutdown Engine", "Engine - {0}")]
     [TouchPortalActionChoice(new [] { "Start", "Shutdown" }, "Start")]
-    public object ENGINE_AUTO { get; }
+    public static object ENGINE_AUTO { get; }
 
     #endregion
 
@@ -25,12 +25,12 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
 
     [TouchPortalAction("AllMagenetos", "Toggle All Magnetos", "MSFS", "Toggle All Magnetos", "Toggle All Magnetos - {0}")]
     [TouchPortalActionChoice(new [] { "Start", "Off", "Right", "Left", "Both", "Decrease", "Increase" }, "Start")]
-    public object ALL_MAGNETOS { get; }
+    public static object ALL_MAGNETOS { get; }
 
     [TouchPortalAction("MagnetoSpecific", "Magnetos Specific", "MSFS", "Toggle Magneto Specific", "Toggle Magneto {0} - {1}")]
     [TouchPortalActionChoice(new [] { "1", "2", "3", "4" }, "1")]
     [TouchPortalActionChoice(new [] { "Start", "Off", "Right", "Left", "Both", "Decrease", "Increase" }, "Start")]
-    public object MAGNETO_SPECIFIC { get; }
+    public static object MAGNETO_SPECIFIC { get; }
 
     #endregion
 
@@ -38,7 +38,7 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
 
     [TouchPortalAction("Starters", "Toggle Starters", "MSFS", "Toggle Starters", "Toggle Starter - {0}")]
     [TouchPortalActionChoice(new [] { "All", "1", "2", "3", "4" }, "All")]
-    public object STARTERS { get; }
+    public static object STARTERS { get; }
 
     #endregion
 
@@ -46,29 +46,29 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
 
     [TouchPortalAction("Throttle", "Throttle", "MSFS", "Sets all throttles", "All Throttles - {0}")]
     [TouchPortalActionChoice(new [] { "Full", "Increase", "Increase Small", "Decrease", "Decrease Small", "Cut", "Set", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%" }, "Full")]
-    public object THROTTLE { get; }
+    public static object THROTTLE { get; }
 
     [TouchPortalAction("ThrottleSpecific", "Throttle Specific", "MSFS", "Sets Throttle on specific engine", "Throttle {0} - {1}")]
     [TouchPortalActionChoice(new [] { "1", "2", "3", "4" }, "1")]
     [TouchPortalActionChoice(new [] { "Full", "Increase", "Increase Small", "Decrease", "Decrease Small", "Cut" }, "Full")]
-    public object THROTTLE_SPECIFIC { get; }
+    public static object THROTTLE_SPECIFIC { get; }
 
 
     [SimVarDataRequest]
     [TouchPortalState("ThrottleEngine1", "text", "Throttle - Engine 1 - Percentage", "")]
-    public readonly static SimVarItem ThrottleEngine1 = new SimVarItem { def = Definition.ThrottleEngine1, req = Request.ThrottleEngine1, SimVarName = "GENERAL ENG THROTTLE LEVER POSITION:1", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.#}" };
+    public static readonly SimVarItem ThrottleEngine1 = new SimVarItem { def = Definition.ThrottleEngine1, req = Request.ThrottleEngine1, SimVarName = "GENERAL ENG THROTTLE LEVER POSITION:1", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("ThrottleEngine2", "text", "Throttle - Engine 2 - Percentage", "")]
-    public readonly static SimVarItem ThrottleEngine2 = new SimVarItem { def = Definition.ThrottleEngine2, req = Request.ThrottleEngine2, SimVarName = "GENERAL ENG THROTTLE LEVER POSITION:2", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.#}" };
+    public static readonly SimVarItem ThrottleEngine2 = new SimVarItem { def = Definition.ThrottleEngine2, req = Request.ThrottleEngine2, SimVarName = "GENERAL ENG THROTTLE LEVER POSITION:2", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("ThrottleEngine3", "text", "Throttle - Engine 3 - Percentage", "")]
-    public readonly static SimVarItem ThrottleEngine3 = new SimVarItem { def = Definition.ThrottleEngine3, req = Request.ThrottleEngine3, SimVarName = "GENERAL ENG THROTTLE LEVER POSITION:3", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.#}" };
+    public static readonly SimVarItem ThrottleEngine3 = new SimVarItem { def = Definition.ThrottleEngine3, req = Request.ThrottleEngine3, SimVarName = "GENERAL ENG THROTTLE LEVER POSITION:3", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("ThrottleEngine4", "text", "Throttle - Engine 4 - Percentage", "")]
-    public readonly static SimVarItem ThrottleEngine4 = new SimVarItem { def = Definition.ThrottleEngine4, req = Request.ThrottleEngine4, SimVarName = "GENERAL ENG THROTTLE LEVER POSITION:4", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.#}" };
+    public static readonly SimVarItem ThrottleEngine4 = new SimVarItem { def = Definition.ThrottleEngine4, req = Request.ThrottleEngine4, SimVarName = "GENERAL ENG THROTTLE LEVER POSITION:4", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.#}" };
 
     #endregion
 
@@ -76,28 +76,28 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
 
     [TouchPortalAction("Mixture", "Mixture", "MSFS", "Sets all mixtures", "All Mixtures - {0}")]
     [TouchPortalActionChoice(new [] { "Rich", "Increase", "Increase Small", "Decrease", "Decrease Small", "Lean", "Best", "Set" }, "Rich")]
-    public object MIXTURE { get; }
+    public static object MIXTURE { get; }
 
     [TouchPortalAction("MixtureSpecific", "Mixture Specific", "MSFS", "Sets mixture on specific engine", "Mixture {0} - {1}")]
     [TouchPortalActionChoice(new [] { "1", "2", "3", "4" }, "1")]
     [TouchPortalActionChoice(new [] { "Rich", "Increase", "Increase Small", "Decrease", "Decrease Small", "Lean" }, "Rich")]
-    public object MIXTURE_SPECIFIC { get; }
+    public static object MIXTURE_SPECIFIC { get; }
 
     [SimVarDataRequest]
     [TouchPortalState("MixtureEngine1", "text", "Mixture - Engine 1 - Percentage", "")]
-    public readonly static SimVarItem MixtureEngine1 = new SimVarItem { def = Definition.MixtureEngine1, req = Request.MixtureEngine1, SimVarName = "GENERAL ENG MIXTURE LEVER POSITION:1", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem MixtureEngine1 = new SimVarItem { def = Definition.MixtureEngine1, req = Request.MixtureEngine1, SimVarName = "GENERAL ENG MIXTURE LEVER POSITION:1", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("MixtureEngine2", "text", "Mixture - Engine 2 - Percentage", "")]
-    public readonly static SimVarItem MixtureEngine2 = new SimVarItem { def = Definition.MixtureEngine2, req = Request.MixtureEngine2, SimVarName = "GENERAL ENG MIXTURE LEVER POSITION:2", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem MixtureEngine2 = new SimVarItem { def = Definition.MixtureEngine2, req = Request.MixtureEngine2, SimVarName = "GENERAL ENG MIXTURE LEVER POSITION:2", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("MixtureEngine3", "text", "Mixture - Engine 3 - Percentage", "")]
-    public readonly static SimVarItem MixtureEngine3 = new SimVarItem { def = Definition.MixtureEngine3, req = Request.MixtureEngine3, SimVarName = "GENERAL ENG MIXTURE LEVER POSITION:3", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem MixtureEngine3 = new SimVarItem { def = Definition.MixtureEngine3, req = Request.MixtureEngine3, SimVarName = "GENERAL ENG MIXTURE LEVER POSITION:3", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("MixtureEngine4", "text", "Mixture - Engine 4 - Percentage", "")]
-    public readonly static SimVarItem MixtureEngine4 = new SimVarItem { def = Definition.MixtureEngine4, req = Request.MixtureEngine4, SimVarName = "GENERAL ENG MIXTURE LEVER POSITION:4", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem MixtureEngine4 = new SimVarItem { def = Definition.MixtureEngine4, req = Request.MixtureEngine4, SimVarName = "GENERAL ENG MIXTURE LEVER POSITION:4", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     #endregion
 
@@ -105,19 +105,19 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
 
     [SimVarDataRequest]
     [TouchPortalState("PropellerEngine1", "text", "Propeller - Engine 1 - Percentage", "")]
-    public readonly static SimVarItem PropellerEngine1 = new SimVarItem { def = Definition.PropellerEngine1, req = Request.PropellerEngine1, SimVarName = "GENERAL ENG PROPELLER LEVER POSITION:1", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem PropellerEngine1 = new SimVarItem { def = Definition.PropellerEngine1, req = Request.PropellerEngine1, SimVarName = "GENERAL ENG PROPELLER LEVER POSITION:1", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("PropellerEngine2", "text", "Propeller - Engine 2 - Percentage", "")]
-    public readonly static SimVarItem PropellerEngine2 = new SimVarItem { def = Definition.PropellerEngine2, req = Request.PropellerEngine2, SimVarName = "GENERAL ENG PROPELLER LEVER POSITION:2", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem PropellerEngine2 = new SimVarItem { def = Definition.PropellerEngine2, req = Request.PropellerEngine2, SimVarName = "GENERAL ENG PROPELLER LEVER POSITION:2", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("PropellerEngine3", "text", "Propeller - Engine 3 - Percentage", "")]
-    public readonly static SimVarItem PropellerEngine3 = new SimVarItem { def = Definition.PropellerEngine3, req = Request.PropellerEngine3, SimVarName = "GENERAL ENG PROPELLER LEVER POSITION:3", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem PropellerEngine3 = new SimVarItem { def = Definition.PropellerEngine3, req = Request.PropellerEngine3, SimVarName = "GENERAL ENG PROPELLER LEVER POSITION:3", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("PropellerEngine4", "text", "Propeller - Engine 4 - Percentage", "")]
-    public readonly static SimVarItem PropellerEngine4 = new SimVarItem { def = Definition.PropellerEngine4, req = Request.PropellerEngine4, SimVarName = "GENERAL ENG PROPELLER LEVER POSITION:4", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem PropellerEngine4 = new SimVarItem { def = Definition.PropellerEngine4, req = Request.PropellerEngine4, SimVarName = "GENERAL ENG PROPELLER LEVER POSITION:4", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     #endregion
 
@@ -125,35 +125,35 @@ namespace MSFSTouchPortalPlugin.Objects.InstrumentsSystems {
 
     [SimVarDataRequest]
     [TouchPortalState("RPMN1Engine1", "text", "RPM - Engine 1", "")]
-    public readonly static SimVarItem RPMN1Engine1 = new SimVarItem { def = Definition.RPMN1Engine1, req = Request.RPMN1Engine1, SimVarName = "ENG N1 RPM:1", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem RPMN1Engine1 = new SimVarItem { def = Definition.RPMN1Engine1, req = Request.RPMN1Engine1, SimVarName = "ENG N1 RPM:1", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("RPMN1Engine2", "text", "RPM - Engine 2", "")]
-    public readonly static SimVarItem RPMN1Engine2 = new SimVarItem { def = Definition.RPMN1Engine2, req = Request.RPMN1Engine2, SimVarName = "ENG N1 RPM:2", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem RPMN1Engine2 = new SimVarItem { def = Definition.RPMN1Engine2, req = Request.RPMN1Engine2, SimVarName = "ENG N1 RPM:2", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("RPMN1Engine3", "text", "RPM - Engine 3", "")]
-    public readonly static SimVarItem RPMN1Engine3 = new SimVarItem { def = Definition.RPMN1Engine3, req = Request.RPMN1Engine3, SimVarName = "ENG N1 RPM:3", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem RPMN1Engine3 = new SimVarItem { def = Definition.RPMN1Engine3, req = Request.RPMN1Engine3, SimVarName = "ENG N1 RPM:3", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("RPMN1Engine4", "text", "RPM - Engine 4", "")]
-    public readonly static SimVarItem RPMN1Engine4 = new SimVarItem { def = Definition.RPMN1Engine4, req = Request.RPMN1Engine4, SimVarName = "ENG N1 RPM:4", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem RPMN1Engine4 = new SimVarItem { def = Definition.RPMN1Engine4, req = Request.RPMN1Engine4, SimVarName = "ENG N1 RPM:4", Unit = Units.percent, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("RPMPropeller1", "text", "RPM - Propeller 1", "")]
-    public readonly static SimVarItem RPMPropeller1 = new SimVarItem { def = Definition.RPMPropeller1, req = Request.RPMPropeller1, SimVarName = "PROP RPM:1", Unit = Units.rpm, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem RPMPropeller1 = new SimVarItem { def = Definition.RPMPropeller1, req = Request.RPMPropeller1, SimVarName = "PROP RPM:1", Unit = Units.rpm, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("RPMPropeller2", "text", "RPM - Propeller 2", "")]
-    public readonly static SimVarItem RPMPropeller2 = new SimVarItem { def = Definition.RPMPropeller2, req = Request.RPMPropeller2, SimVarName = "PROP RPM:2", Unit = Units.rpm, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem RPMPropeller2 = new SimVarItem { def = Definition.RPMPropeller2, req = Request.RPMPropeller2, SimVarName = "PROP RPM:2", Unit = Units.rpm, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("RPMPropeller3", "text", "RPM - Propeller 3", "")]
-    public readonly static SimVarItem RPMPropeller3 = new SimVarItem { def = Definition.RPMPropeller3, req = Request.RPMPropeller3, SimVarName = "PROP RPM:3", Unit = Units.rpm, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem RPMPropeller3 = new SimVarItem { def = Definition.RPMPropeller3, req = Request.RPMPropeller3, SimVarName = "PROP RPM:3", Unit = Units.rpm, CanSet = true, StringFormat = "{0:0.0#}" };
 
     [SimVarDataRequest]
     [TouchPortalState("RPMPropeller4", "text", "RPM - Propeller 4", "")]
-    public readonly static SimVarItem RPMPropeller4 = new SimVarItem { def = Definition.RPMPropeller4, req = Request.RPMPropeller4, SimVarName = "PROP RPM:4", Unit = Units.rpm, CanSet = true, StringFormat = "{0:0.0#}" };
+    public static readonly SimVarItem RPMPropeller4 = new SimVarItem { def = Definition.RPMPropeller4, req = Request.RPMPropeller4, SimVarName = "PROP RPM:4", Unit = Units.rpm, CanSet = true, StringFormat = "{0:0.0#}" };
 
     #endregion
   }

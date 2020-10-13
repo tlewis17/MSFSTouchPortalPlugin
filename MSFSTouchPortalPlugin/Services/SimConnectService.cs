@@ -20,7 +20,7 @@ namespace MSFSTouchPortalPlugin.Services {
     const uint NOTIFICATION_PRIORITY = 10000000;
     const int WM_USER_SIMCONNECT = 0x0402;
     SimConnect _simConnect = null;
-    EventWaitHandle _scReady = new EventWaitHandle(false, EventResetMode.AutoReset);
+    readonly EventWaitHandle _scReady = new EventWaitHandle(false, EventResetMode.AutoReset);
     private bool _connected = false;
     
     public event DataUpdateEventHandler OnDataUpdateEvent;

@@ -133,8 +133,8 @@ namespace MSFSTouchPortalPlugin.Services {
 
     public bool RegisterToSimConnect(SimVarItem simVar) {
       if (_connected) {
-        _simConnect.AddToDataDefinition(simVar.def, simVar.SimVarName, simVar.Unit, SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
-        _simConnect.RegisterDataDefineStruct<double>(simVar.def);
+        _simConnect.AddToDataDefinition(simVar.Def, simVar.SimVarName, simVar.Unit, SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+        _simConnect.RegisterDataDefineStruct<double>(simVar.Def);
         return true;
       }
 
@@ -143,7 +143,7 @@ namespace MSFSTouchPortalPlugin.Services {
 
     public bool RequestDataOnSimObjectType(SimVarItem simVar) {
       if (_connected) {
-        _simConnect.RequestDataOnSimObjectType(simVar.def, simVar.def, 0, SIMCONNECT_SIMOBJECT_TYPE.USER);
+        _simConnect.RequestDataOnSimObjectType(simVar.Def, simVar.Def, 0, SIMCONNECT_SIMOBJECT_TYPE.USER);
       }
 
       return false;
@@ -211,26 +211,14 @@ namespace MSFSTouchPortalPlugin.Services {
           _scReady.Dispose();
         }
 
-        // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
-        // TODO: set large fields to null.
-
         disposedValue = true;
       }
     }
-
-    // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
-    // ~SimConnectService()
-    // {
-    //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-    //   Dispose(false);
-    // }
 
     // This code added to correctly implement the disposable pattern.
     public void Dispose() {
       // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
       Dispose(true);
-      // TODO: uncomment the following line if the finalizer is overridden above.
-      // GC.SuppressFinalize(this);
     }
     #endregion
   }

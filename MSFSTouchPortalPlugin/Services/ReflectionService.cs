@@ -75,9 +75,9 @@ namespace MSFSTouchPortalPlugin.Services {
           // Evaluate and setup the Touch Portal State ID
           string catId = stateFieldClass.GetCustomAttribute<TouchPortalCategoryAttribute>().Id;
           var item = (SimVarItem)s.GetValue(null);
-          item.TouchPortalStateId = $"{rootName}.{catId}.State.{item.def.ToString()}";
+          item.TouchPortalStateId = $"{rootName}.{catId}.State.{item.Def.ToString()}";
 
-          returnDict.TryAdd(item.def, item);
+          returnDict.TryAdd(item.Def, item);
         });
       });
 

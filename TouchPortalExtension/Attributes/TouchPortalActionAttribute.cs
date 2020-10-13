@@ -35,8 +35,8 @@ namespace TouchPortalExtension.Attributes {
 
   [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = true)]
   public class TouchPortalActionChoiceAttribute : Attribute {
-    public string[] ChoiceValues;
-    public string DefaultValue;
+    public string[] ChoiceValues { get; set; }
+    public string DefaultValue { get; set; }
 
     public TouchPortalActionChoiceAttribute(string[] choiceValues, string defaultValue) {
       ChoiceValues = choiceValues;

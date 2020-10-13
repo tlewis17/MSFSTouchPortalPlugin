@@ -42,6 +42,7 @@ namespace MSFSTouchPortalPlugin.Services {
       var enumList = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.IsEnum && t.GetCustomAttribute<SimNotificationGroupAttribute>() != null).ToList();
       enumList.ForEach(enumValue => {
         // Get the notification group to register
+        var catName = enumValue.GetCustomAttribute<TouchPortalCategoryMappingAttribute>().CategoryId;
         // Configure SimConnect action mappings
         var events = enumValue.GetMembers().Where(m => m.CustomAttributes.Any(att => att.AttributeType == typeof(SimActionEventAttribute))).ToList();
 

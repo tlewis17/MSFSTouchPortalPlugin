@@ -71,6 +71,10 @@ namespace MSFSTouchPortalPlugin.Services {
               case Units.knots:
               case Units.feet:
               case Units.MHz:
+              case Units.percent:
+              case Units.rpm:
+              case Units.mach:
+              case Units.feetminute:
                 valObj = float.Parse(stringVal);
                 break;
               case Units.radians:

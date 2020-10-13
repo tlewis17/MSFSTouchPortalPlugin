@@ -21,8 +21,11 @@ namespace MSFSTouchPortalPlugin.Objects.FlightSystems {
     [TouchPortalActionChoice(new string[] { "All", "Left", "Right" }, "All")]
     public object BRAKES { get; }
 
+
+    [SimVarDataRequest]
     [TouchPortalAction("ParkingBreak", "Toggle Parking Brake", "MSFS", "Toggle Parking Brake", "Toggle Parking Brake")]
-    public object PARKING_BRAKE { get; }
+    [TouchPortalState("ParkingBrakeIndicator", "text", "Parking Brake Indicator true/false", "")]
+    public static SimVarItem PARKING_BRAKE = new SimVarItem { def = Definition.ParkingBrakeIndicator, req = Request.ParkingBrakeIndicator, SimVarName = "BRAKE PARKING POSITION", Unit = Units.Bool, CanSet = false };
 
     #endregion
 

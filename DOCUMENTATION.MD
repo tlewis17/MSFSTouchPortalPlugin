@@ -120,10 +120,7 @@ This plugin will provide a two way interface between Touch Portal and Microsoft 
 | Name | Description | Type | Format | Data (Default in bold) |
 | --- | --- | --- | --- | --- |
 | Anti-Ice | Toggle/On/Off Anti Ice | communicate | Anti Ice - {0} | **Toggle**,On,Off,Set |
-| Anti-Ice Engine 1 | Toggle/On/Off Anti Ice Engine 1 | communicate | Anti Ice Engine 1 - {0} | **Toggle**,Set |
-| Anti-Ice Engine 2 | Toggle/On/Off Anti Ice Engine 2 | communicate | Anti Ice Engine 2 - {0} | **Toggle**,Set |
-| Anti-Ice Engine 3 | Toggle/On/Off Anti Ice Engine 3 | communicate | Anti Ice Engine 3 - {0} | **Toggle**,Set |
-| Anti-Ice Engine 4 | Toggle/On/Off Anti Ice Engine 4 | communicate | Anti Ice Engine 4 - {0} | **Toggle**,Set |
+| Anti-Ice Engine | Toggle/On/Off Anti Ice Engine | communicate | Anti Ice Engine {0} - {1} | **1**,2,3,4 |
 | Pitot Heat | Toggle/On/Off Pitot Heat | communicate | Pitot Heat - {0} | **Toggle**,On,Off,Set |
 | Propeller De-ice | Toggle Propeller DeIce | communicate | Toggle Propeller DeIce |  |
 | Structural De-ice | Toggle Structural DeIce | communicate | Toggle Structural DeIce |  |

@@ -250,16 +250,21 @@ Extra States for Lights:
 
 ### Environment
 
-| Control | State Variable(s) | Modes | v1/v2 | Tested |
-| --- | --- | --- | --- | --- |
-| Anti-Ice | TBD | Toggle, On, Off, Set | v1 | |
-| Anti-Ice Engine 1 | TBD | Toggle, On, Off, Set | v1 | |
-| Anti-Ice Engine 2 | TBD | Toggle, On, Off, Set | v1 | |
-| Anti-Ice Engine 3 | TBD | Toggle, On, Off, Set | v1 | |
-| Anti-Ice Engine 4 | TBD | Toggle, On, Off, Set | v1 | |
-| Anti-Ice Structural | TBD | Toggle | v1 | |
-| Anti-Ice Propeller | TBD | Toggle | v1 | |
-| Pitot Head | TBD | Toggle, On, Off, Set | v1 | |
+#### Actions
+
+* Anti-Ice - (Not Tested) - Toggles / On / Off Anti-Ice
+* Anti-Ice Engine - (Not Tested) - Toggles Anti-Ice for engines 1, 2, 3, or 4.
+* Propeller De-Ice - (Not Tested) - Toggle
+* Structural De-Ice - (Not Tested) - Toggle
+* Pitot Heat - (Not Tested) - Toggle / On / Off Pitot Heat
+
+#### States
+
+* AntiIceEng1 - (Not Tested) - True/False
+* AntiIceEng2 - (Not Tested) - True/False
+* AntiIceEng3 - (Not Tested) - True/False
+* AntiIceEng4 - (Not Tested) - True/False
+* PitotHeat - (Not Tested) - True/False
 
 ### Flight Instruments
 

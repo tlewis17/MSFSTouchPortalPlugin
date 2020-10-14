@@ -72,7 +72,7 @@ namespace MSFSTouchPortalPlugin.Services {
 
         return true;
       } catch (COMException ex) {
-        _logger.LogError("Connection to Sim failed: {exception}", ex.Message);
+        _logger.LogInformation("Connection to Sim failed: {exception}", ex.Message);
       }
 
       return false;
@@ -166,7 +166,7 @@ namespace MSFSTouchPortalPlugin.Services {
 
     private void Simconnect_OnRecvException(SimConnect sender, SIMCONNECT_RECV_EXCEPTION data) {
       SIMCONNECT_EXCEPTION eException = (SIMCONNECT_EXCEPTION)data.dwException;
-      _logger.LogError("SimConnect_OnRecvException: {exception}", eException.ToString());
+      _logger.LogInformation("SimConnect_OnRecvException: {exception}", eException.ToString());
     }
 
     /// <summary>

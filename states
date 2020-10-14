@@ -19,7 +19,6 @@
 "GENERAL_ENG_FAILED:index": ["Fail flag", b'GENERAL ENG FAILED:index', b'Bool', 'N'],
 "GENERAL_ENG_GENERATOR_SWITCH:index": ["Alternator (generator) switch", b'GENERAL ENG GENERATOR SWITCH:index', b'Bool', 'N'],
 "GENERAL_ENG_GENERATOR_ACTIVE:index": ["Alternator (generator) on/off", b'GENERAL ENG GENERATOR ACTIVE:index', b'Bool', 'Y'],
-"GENERAL_ENG_ANTI_ICE_POSITION:index": ["Engine anti-ice switch", b'GENERAL ENG ANTI ICE POSITION:index', b'Bool', 'N'],
 "GENERAL_ENG_FUEL_VALVE:index": ["Fuel valve state", b'GENERAL ENG FUEL VALVE:index', b'Bool', 'N'],
 "GENERAL_ENG_FUEL_PRESSURE:index": ["Engine fuel pressure", b'GENERAL ENG FUEL PRESSURE:index', b'Psi', 'Y'],
 "GENERAL_ENG_ELAPSED_TIME:index": ["Total engine elapsed time", b'GENERAL ENG ELAPSED TIME:index', b'Hours', 'N'],

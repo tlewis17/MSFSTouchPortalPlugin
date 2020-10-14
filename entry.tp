@@ -1,6 +1,6 @@
 {
   "sdk": 2,
-  "version": 510,
+  "version": 520,
   "name": "MSFSTouchPortalPlugin",
   "id": "MSFSTouchPortalPlugin",
   "configuration": {
@@ -1479,79 +1479,28 @@
           ]
         },
         {
-          "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng1",
-          "name": "Anti-Ice Engine 1",
+          "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng",
+          "name": "Anti-Ice Engine",
           "prefix": "MSFS",
           "type": "communicate",
-          "description": "Toggle/On/Off Anti Ice Engine 1",
+          "description": "Toggle/On/Off Anti Ice Engine",
           "tryInline": true,
-          "format": "Anti Ice Engine 1 - {$MSFSTouchPortalPlugin.Environment.Action.AntiIceEng1.Data.0$}",
+          "format": "Anti Ice Engine {$MSFSTouchPortalPlugin.Environment.Action.AntiIceEng.Data.0$} - {$MSFSTouchPortalPlugin.Environment.Action.AntiIceEng.Data.1$}",
           "data": [
             {
-              "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng1.Data.0",
+              "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng.Data.0",
               "type": "choice",
               "label": "Action",
-              "default": "Toggle",
+              "default": "1",
               "valueChoices": [
-                "Toggle",
-                "Set"
+                "1",
+                "2",
+                "3",
+                "4"
               ]
-            }
-          ]
-        },
-        {
-          "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng2",
-          "name": "Anti-Ice Engine 2",
-          "prefix": "MSFS",
-          "type": "communicate",
-          "description": "Toggle/On/Off Anti Ice Engine 2",
-          "tryInline": true,
-          "format": "Anti Ice Engine 2 - {$MSFSTouchPortalPlugin.Environment.Action.AntiIceEng2.Data.0$}",
-          "data": [
+            },
             {
-              "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng2.Data.0",
-              "type": "choice",
-              "label": "Action",
-              "default": "Toggle",
-              "valueChoices": [
-                "Toggle",
-                "Set"
-              ]
-            }
-          ]
-        },
-        {
-          "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng3",
-          "name": "Anti-Ice Engine 3",
-          "prefix": "MSFS",
-          "type": "communicate",
-          "description": "Toggle/On/Off Anti Ice Engine 3",
-          "tryInline": true,
-          "format": "Anti Ice Engine 3 - {$MSFSTouchPortalPlugin.Environment.Action.AntiIceEng3.Data.0$}",
-          "data": [
-            {
-              "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng3.Data.0",
-              "type": "choice",
-              "label": "Action",
-              "default": "Toggle",
-              "valueChoices": [
-                "Toggle",
-                "Set"
-              ]
-            }
-          ]
-        },
-        {
-          "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng4",
-          "name": "Anti-Ice Engine 4",
-          "prefix": "MSFS",
-          "type": "communicate",
-          "description": "Toggle/On/Off Anti Ice Engine 4",
-          "tryInline": true,
-          "format": "Anti Ice Engine 4 - {$MSFSTouchPortalPlugin.Environment.Action.AntiIceEng4.Data.0$}",
-          "data": [
-            {
-              "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng4.Data.0",
+              "id": "MSFSTouchPortalPlugin.Environment.Action.AntiIceEng.Data.1",
               "type": "choice",
               "label": "Action",
               "default": "Toggle",
@@ -1608,6 +1557,30 @@
       ],
       "events": [],
       "states": [
+        {
+          "id": "MSFSTouchPortalPlugin.Environment.State.AntiIceEng1",
+          "type": "text",
+          "desc": "MSFS - Environment - Anti-Ice Engine 1",
+          "default": ""
+        },
+        {
+          "id": "MSFSTouchPortalPlugin.Environment.State.AntiIceEng2",
+          "type": "text",
+          "desc": "MSFS - Environment - Anti-Ice Engine 2",
+          "default": ""
+        },
+        {
+          "id": "MSFSTouchPortalPlugin.Environment.State.AntiIceEng3",
+          "type": "text",
+          "desc": "MSFS - Environment - Anti-Ice Engine 3",
+          "default": ""
+        },
+        {
+          "id": "MSFSTouchPortalPlugin.Environment.State.AntiIceEng4",
+          "type": "text",
+          "desc": "MSFS - Environment - Anti-Ice Engine 4",
+          "default": ""
+        },
         {
           "id": "MSFSTouchPortalPlugin.Environment.State.PitotHeat",
           "type": "text",

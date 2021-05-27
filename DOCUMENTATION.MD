@@ -142,6 +142,13 @@ This plugin will provide a two way interface between Touch Portal and Microsoft 
 
 ## MSFS - Flight Instruments
 
+### Actions
+
+| Name | Description | Type | Format | Data (Default in bold) |
+| --- | --- | --- | --- | --- |
+| G1000 Display | Pushes the LCD display button | communicate | {0} - {1} | **PFD**,MFD |
+
+
 ---
 
 ## MSFS - Flight Systems

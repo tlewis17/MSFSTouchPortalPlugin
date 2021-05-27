@@ -105,7 +105,8 @@ namespace MSFSTouchPortalPlugin.Services {
 
     public bool MapClientEventToSimEvent(Enum eventId, string eventName) {
       if (_connected) {
-        _simConnect.MapClientEventToSimEvent(eventId, eventName);
+        // Change name of event name in case of MOBIFLIGHT.
+        _simConnect.MapClientEventToSimEvent(eventId, eventName.Replace("MOBIFLIGHT_", "MobiFlight."));
         return true;
       }
 

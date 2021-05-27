@@ -1649,7 +1649,62 @@
       "id": "MSFSTouchPortalPlugin.FlightInstruments",
       "name": "MSFS - Flight Instruments",
       "imagepath": "%TP_PLUGIN_FOLDER%\\MSFS-TouchPortal-Plugin\\airplane_takeoff24.png",
-      "actions": [],
+      "actions": [
+        {
+          "id": "MSFSTouchPortalPlugin.FlightInstruments.Action.G1000",
+          "name": "G1000 Display",
+          "prefix": "MSFS",
+          "type": "communicate",
+          "description": "Pushes the LCD display button",
+          "tryInline": true,
+          "format": "{$MSFSTouchPortalPlugin.FlightInstruments.Action.G1000.Data.0$} - {$MSFSTouchPortalPlugin.FlightInstruments.Action.G1000.Data.1$}",
+          "data": [
+            {
+              "id": "MSFSTouchPortalPlugin.FlightInstruments.Action.G1000.Data.0",
+              "type": "choice",
+              "label": "Action",
+              "default": "PFD",
+              "valueChoices": [
+                "PFD",
+                "MFD"
+              ]
+            },
+            {
+              "id": "MSFSTouchPortalPlugin.FlightInstruments.Action.G1000.Data.1",
+              "type": "choice",
+              "label": "Action",
+              "default": "Key1",
+              "valueChoices": [
+                "Flightplan",
+                "Procedure",
+                "Zoom In",
+                "Zoom Out",
+                "Direct To",
+                "Menu",
+                "Clear",
+                "Enter",
+                "Cursor",
+                "Group Knob Increase",
+                "Group Knob Decrease",
+                "Page Knob Increase",
+                "Page Knob Decrease",
+                "Key1",
+                "Key2",
+                "Key3",
+                "Key4",
+                "Key5",
+                "Key6",
+                "Key7",
+                "Key8",
+                "Key9",
+                "Key10",
+                "Key11",
+                "Key12"
+              ]
+            }
+          ]
+        }
+      ],
       "events": [],
       "states": [
         {
